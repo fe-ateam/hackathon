@@ -35,6 +35,24 @@ angular.module('app')
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
+  $scope.inputFields = [
+    {
+        fieldName: 'currentAge',
+        fieldLabel: 'What is Your Current Age?',
+        fieldValue: '55',
+        fieldType: 'text',
+        min: 18,
+        max: 80
+    },
+    {
+        fieldName: 'retirementAge',
+        fieldLabel: 'What is Your Retirement Age?',
+        fieldValue: '65',
+        fieldType: 'text',
+        min: 18,
+        max: 80
+    }
+  ];
 })
 
 
