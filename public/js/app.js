@@ -63,8 +63,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'location',
-        label: "Where do you want to retire?",
-        type: 'text'
+        type: 'text' // Replace w/ dropdown
       }
 
     ], // end of page location
@@ -75,7 +74,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - current age
       {
         name: 'currentAge',
-        label: "What is Your Current Age?",
         value: '55',
         type: 'text',
         validation: 'numbers-only',
@@ -86,7 +84,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - retirement age
       {
         name: 'retirementAge',
-        label: "What is Your Retirement Age?",
         value: '65',
         type: 'text',
         validation: 'numbers-only',
@@ -102,19 +99,12 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - housing
       {
         name: 'housingType',
-        label: "Tell us about the type of house you would like to own.",
         value: "midRangeHome",
         type: "radio",
-        answers: [{
-          name: "midRangeHome",
-          img: "blah",
-          label: "Mid Range Home"
-        },
-        {
-          name: "luxury",
-          img: "blah2",
-          label: "Luxury Home"
-        }]
+        answers: [
+          { name: "midRangeHome", img: "blah", label: "Mid Range Home" },
+          { name: "luxuryHome", img: "blah2", label: "Luxury Home" }
+        ]
       }
     ], // end of page housing
 
@@ -126,17 +116,70 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - food
       {
         name: 'food',
-        label: "What restaurant do you like to go?",
+        type: 'radio',
         value: 'midRangeFood',
-        answers: [{
-          name: 'midRangeFood',
-          img: 'blah',
-          label: "Mid range restaurant"
-        }
+        answers: [
+          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant" },
+          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant" }
         ]
       }
 
-    ] // end of page food
+    ], // end of page food
+
+    // Page transportation
+    // ----------------------------------------------------------
+
+    transportation: [
+
+      // Question - transportation
+      {
+        name: 'transportation',
+        type: 'radio',
+        value: 'bus',
+        answers: [
+          { name: 'bus', img: 'blah', label: "Public bus" },
+          { name: 'car', img: 'blah2', label: "Car" },
+          { name: 'luxuryCar', img: 'blah3', label: "Luxury car" }
+        ]
+      }
+
+    ], // end of transportation
+
+    // Page travel
+    // ----------------------------------------------------------
+
+    travel: [
+
+      // Question - travel
+      {
+        name: 'travel',
+        type: 'text',
+        value: '1',
+        validation: 'numbers-only',
+        min: 0,
+        max: 12
+      }
+
+    ], // end of travel
+
+    // Page hobby
+    // ----------------------------------------------------------
+
+    hobby: [
+
+      // Question - hobby
+      {
+        name: 'hobby',
+        type: 'checkbox',
+        value: '',
+        answers: [
+          { name: 'golf', img: 'blah1', label: "Golf" },
+          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck"},
+          { name: 'hiking', img: 'blah3', label: "Hiking" }
+        ]
+      }
+
+    ] // end of Page hobby
 
   }; // end of $rootScope.pages
 
