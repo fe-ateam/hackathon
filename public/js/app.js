@@ -20,6 +20,31 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       controller: 'agesController'
     })
 
+    .when('/housing', {
+      templateUrl: 'partials/housing.html',
+      controller: 'housingController'
+    })
+
+    .when('/food', {
+      templateUrl: 'partials/food.html',
+      controller: 'foodController'
+    })
+
+    .when('/transportation', {
+      templateUrl: 'partials/transportation.html',
+      controller: 'transportationController'
+    })
+
+    .when('/travel', {
+      templateUrl: 'partials/travel.html',
+      controller: 'travelController'
+    })
+
+    .when('/hobby', {
+      templateUrl: 'partials/hobby.html',
+      controller: 'hobbyController'
+    })
+
     .when('/summary', {
       templateUrl: 'partials/summary.html',
       controller: 'summaryController'
