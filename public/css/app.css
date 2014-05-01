@@ -64,6 +64,9 @@ li {
 .page a {
   margin-top: 50px;
 }
+.page-summary.page a {
+  margin-top: 5px;
+}
 /*#location {
   position: absolute;
   color: #333;
