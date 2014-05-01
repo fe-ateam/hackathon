@@ -2,6 +2,7 @@
 <html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=1">
   <title>Hackathon</title>
   <!--[if lte IE 8]>
     <script>
@@ -51,6 +52,18 @@
 
   <div class="page {{ pageClass }}" ng-view></div>
 
+  <div id="nav-questions-c">
+    <ul id="nav-questions">
+      <li><a href="#location"><span class="glyphicon glyphicon-map-marker"></span></a></li>
+      <li><a href="#ages"><span class="glyphicon glyphicon-flag"></span></a></li>
+      <li><a href="#housing"><span class="glyphicon glyphicon-home"></span></a></li>
+      <li><a href="#food"><span class="glyphicon glyphicon-cutlery"></span></a></li>
+      <li><a href="#transportation"><span class="glyphicon glyphicon-road"></span></a></li>
+      <li><a href="#travel"><span class="glyphicon glyphicon-plane"></span></a></li>
+      <li><a href="#hobby"><span class="glyphicon glyphicon-music"></span></a></li>
+      <li><a href="#summary"><span class="glyphicon glyphicon-list"></span></a></li>
+    </ul>
+  </div>
 
   <script src="/lib/angular/angular.js"></script>
   <script src="/lib/angular-route/angular-route.js"></script>

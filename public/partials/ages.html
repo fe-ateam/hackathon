@@ -1,4 +1,11 @@
 <h1>Ages</h1>
+<form name="agesForm">
+<div ng-repeat="inputField in inputFields" />
+	<div input-fields
+		field-info="inputField">
+	</div>
+</div>
+</form>
 
-<a href="#" class="btn btn-primary btn-lg">Home</a>
-<a href="#location" class="btn btn-success btn-lg">Location</a>
+<a href="#location" ng-click="goBack()" class="btn btn-primary btn-lg">Previous</a>
+<a href="#housing" ng-click="goNext()" class="btn btn-danger btn-lg">Next</a>
