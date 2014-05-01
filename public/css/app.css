@@ -4,6 +4,11 @@ html {
   overflow-y: hidden;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
@@ -52,7 +57,7 @@ li {
 }
 
 .page h1 {
-  font-size: 40px;
+  font-size: 35px;
 }
 .page a {
   margin-top: 50px;
@@ -85,30 +90,35 @@ li {
 
 .page.ng-leave {
   z-index: 777;
+
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.5s both ease-in;
 }
 .page.ng-enter {
   z-index: 555;
+
+  -webkit-animation: slideInRight 0.5s both ease-in;
+  -moz-animation: slideInRight 0.5s both ease-in;
+  animation: slideInRight 0.5s both ease-in;
 }
 
 /* page specific animations ------------------------ */
 
 /* home -------------------------- */
-.page-home.ng-leave {
-  -webkit-transform-origin: 0% 0%;
+/*.page-home.ng-leave {
   -webkit-animation: slideOutLeft 0.5s both ease-in;
-  -moz-transform-origin: 0% 0%;
   -moz-animation: slideOutLeft 0.5s both ease-in;
-  transform-origin: 0% 0%;
   animation: slideOutLeft 0.5s both ease-in;
 }
 .page-home.ng-enter {
   -webkit-animation: slideInRight 0.5s both ease-in;
   -moz-animation: slideInRight 0.5s both ease-in;
   animation: slideInRight 0.5s both ease-in;
-}
+}*/
 
 /* location ------------------------ */
-.page-location.ng-leave {
+/*.page-location.ng-leave {
   -webkit-animation: slideOutLeft 0.5s both ease-in;
   -moz-animation: slideOutLeft 0.5s both ease-in;
   animation: slideOutLeft 0.5s both ease-in;
@@ -117,10 +127,10 @@ li {
   -webkit-animation: slideInRight 0.5s both ease-in;
   -moz-animation: slideInRight 0.5s both ease-in;
   animation: slideInRight 0.5s both ease-in;
-}
+}*/
 
 /* ages ---------------------- */
-.page-ages.ng-leave {
+/*.page-ages.ng-leave {
   -webkit-animation: slideOutLeft 0.5s both ease-in;
   -moz-animation: slideOutLeft 0.5s both ease-in;
   animation: slideOutLeft 0.5s both ease-in;
@@ -129,10 +139,10 @@ li {
   -webkit-animation: slideInRight 0.5s both ease-in;
   -moz-animation: slideInRight 0.5s both ease-in;
   animation: slideInRight 0.5s both ease-in;
-}
+}*/
 
 /* rotate and fall */
-@-webkit-keyframes rotateFall {
+/*@-webkit-keyframes rotateFall {
   0% { -webkit-transform: rotateZ(0deg); }
   20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
   40% { -webkit-transform: rotateZ(17deg); }
@@ -152,10 +162,10 @@ li {
   40% { transform: rotateZ(17deg); }
   60% { transform: rotateZ(16deg); }
   100% { transform: translateY(100%) rotateZ(17deg); }
-}
+}*/
 
 /* scale up */
-@keyframes scaleUp {
+/*@keyframes scaleUp {
   from { opacity: 0.3; -webkit-transform: scale(0.8); }
 }
 @-moz-keyframes scaleUp {
@@ -163,7 +173,7 @@ li {
 }
 @-webkit-keyframes scaleUp {
   from { opacity: 0.3; -webkit-transform: scale(0.8); }
-}
+}*/
 
 /* slide in from the right */
 @keyframes slideInRight {
@@ -180,7 +190,7 @@ li {
 }
 
 /* slide in from the bottom */
-@keyframes slideInUp {
+/*@keyframes slideInUp {
   from { transform: translateY(100%); }
   to   { transform: translateY(0); }
 }
@@ -191,7 +201,7 @@ li {
 @-webkit-keyframes slideInUp {
   from { -webkit-transform: translateY(100%); }
   to   { -webkit-transform: translateY(0); }
-}
+}*/
 
 /* slide in from the bottom */
 @keyframes slideOutLeft {
@@ -205,7 +215,7 @@ li {
 }
 
 /* rotate out newspaper */
-@-webkit-keyframes rotateOutNewspaper {
+/*@-webkit-keyframes rotateOutNewspaper {
   to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
 }
 @-moz-keyframes rotateOutNewspaper {
@@ -213,7 +223,7 @@ li {
 }
 @keyframes rotateOutNewspaper {
   to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
-}
+}*/
 
 
 .panel {

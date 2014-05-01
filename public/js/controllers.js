@@ -117,6 +117,7 @@ angular.module('app')
   $log.log('hobbyController');
 
   $scope.pageClass = 'page-hobby';
+  $scope.questions = $scope.pages.hobby;
 })
 
 
