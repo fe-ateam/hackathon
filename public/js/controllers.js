@@ -90,7 +90,8 @@ angular.module('app')
   $log.log('hobbyController');
 
   $scope.pageClass = 'page-hobby';
-  $scope.questions = $scope.pages.hobby;
+  $scope.pageTitle = "What hobbies would you like to have?";
+  $scope.inputFields = $scope.pages.hobby;
 })
 
 
