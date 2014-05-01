@@ -25,12 +25,8 @@ angular.module('app')
   $log.log('locationController');
 
   $scope.pageClass = 'page-location';
-
-  $scope.question = {
-    id: 'location',
-    name: "Where do you want to retire?",
-    type: 'text'
-  };
+  $scope.pageTitle = 'Where do you want to retire?';
+  $scope.inputFields = $scope.pages.location;
 })
 
 
