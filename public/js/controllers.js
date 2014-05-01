@@ -39,24 +39,7 @@ angular.module('app')
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
-  $scope.inputFields = [{
-        name: 'currentAge',
-        label: 'What is Your Current Age?',
-        value: '55',
-        type: 'text',
-        validation: 'numbers-only',
-        min: 18,
-        max: 80
-    },
-    {
-        name: 'retirementAge',
-        label: 'What is Your Retirement Age?',
-        value: '65',
-        type: 'text',
-        validation: 'numbers-only',
-        min: 18,
-        max: 80
-   }];
+  $scope.inputFields = $scope.pages.ages;
 })
 
 
@@ -65,18 +48,8 @@ angular.module('app')
   $log.log('housingController');
 
   $scope.pageClass = 'page-housing';
-
-  $scope.question = {
-    id: 'housing',
-    name: "What house do you like to live in?",
-    type: 'radio',
-    answers: [
-      { id: "housing_rent_in", name: "Rent apartment in city centre", selected: true },
-      { id: "housing_rent_out", name: "Rent apartment outside of centre" },
-      { id: "housing_buy_in", name: "Buy house in city centre" },
-      { id: "housing_buy_out", name: "Buy house outside of centre" }
-    ]
-  };
+  $scope.pageTitle = 'What house do you like to live in?';
+  $scope.inputFields = $scope.pages.housing;
 
   $scope.goBack = function() {
 
