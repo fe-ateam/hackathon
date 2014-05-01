@@ -28,7 +28,7 @@ angular.module('app')
 		}
 		,
 		template: '<label ng-repeat-start="answer in fieldInfo.answers" for="{{ fieldInfo.name }}">{{ answer.label }}</label>'
-					+ '<input ng-repeat-end numbers-only name="{{ fieldInfo.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"/>'
+					+ '<input ng-repeat-end name="{{ fieldInfo.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"/>'
 		,
 		link: function(scope, element, attrs) {
 			
