@@ -4,14 +4,7 @@ html {
   overflow-y: hidden;
 }
 
-.page {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
+/* Quetion nav bar ------------ */
 #nav-questions-c {
   z-index: 999;
   position: absolute;
@@ -43,6 +36,14 @@ html {
   height: 2em;
   line-height: 2;
   font-size: 40px;
+  text-align: center;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 }
 

@@ -23,6 +23,11 @@ angular.module('app')
   $log.log('locationController');
 
   $scope.pageClass = 'page-location';
+
+  $scope.question = {
+    name: "Where do you want to retire?",
+    type: "text"
+  };
 })
 
 
@@ -32,22 +37,59 @@ angular.module('app')
   $scope.pageClass = 'page-ages';
 })
 
+
+.controller('housingController', function($scope, $log) {
+  $log.log('housingController');
+
+  $scope.pageClass = 'page-housing';
+})
+
+
+.controller('foodController', function($scope, $log) {
+  $log.log('foodController');
+
+  $scope.pageClass = 'page-food';
+})
+
+
+.controller('transportationController', function($scope, $log) {
+  $log.log('transportationController');
+
+  $scope.pageClass = 'page-transportation';
+})
+
+
+.controller('travelController', function($scope, $log) {
+  $log.log('travelController');
+
+  $scope.pageClass = 'page-travel';
+})
+
+
+.controller('hobbyController', function($scope, $log) {
+  $log.log('hobbyController');
+
+  $scope.pageClass = 'page-hobby';
+})
+
+
 .controller('summaryController', function($scope, $log) {
   $scope.pageClass = 'page-summary';
 
   $scope.categories = [
     {'name': 'San Fran', 'value': 1000},
     {'name': 'San Jose', 'value': 300},
-  ]
-  $scope.total = function(){
+  ];
+
+  $scope.total = function() {
     var total = 0;
-    angular.forEach($scope.categories, function(category){
+    angular.forEach($scope.categories, function(category) {
       if(category.value != '')
       {
         total += parseInt(category.value);
       }
-    })
-    return total;
-};
+    });
 
+    return total;
+  };
 });
