@@ -13,6 +13,18 @@ html {
   text-align: center;
 }
 
+#nav-questions {
+  z-index: 999;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+#nav-questions li {
+  list-style: none;
+  display: inline-block;
+}
+
 .page h1 {
   font-size: 60px;
 }
@@ -46,10 +58,10 @@ html {
 ============================================================================= */
 
 .page.ng-leave {
-  z-index: 9999;
+  z-index: 777;
 }
 .page.ng-enter {
-  z-index: 8888;
+  z-index: 555;
 }
 
 /* page specific animations ------------------------ */
