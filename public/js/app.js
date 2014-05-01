@@ -56,23 +56,37 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
   $rootScope.pages = {
 
+    // Page location
+    // ---------------------------------------------------------
+    location: [
+
+      // Question - location
+      {
+        name: 'location',
+        label: "Where do you want to retire?",
+        type: 'text'
+      }
+
+    ], // end of page location
+
     // Page ages
+    // ---------------------------------------------------------
     ages: [
       // Question - current age
       {
-          name: 'currentAge',
-          label: 'What is Your Current Age?',
-          value: '55',
-          type: 'text',
-          validation: 'numbers-only',
-          min: 18,
-          max: 80
-        },
+        name: 'currentAge',
+        label: "What is Your Current Age?",
+        value: '55',
+        type: 'text',
+        validation: 'numbers-only',
+        min: 18,
+        max: 80
+      },
 
       // Question - retirement age
       {
         name: 'retirementAge',
-        label: 'What is Your Retirement Age?',
+        label: "What is Your Retirement Age?",
         value: '65',
         type: 'text',
         validation: 'numbers-only',
@@ -82,7 +96,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     ], // end of page ages
 
     // Page housing
-    'housing': [
+    // ---------------------------------------------------------
+    housing: [
 
       // Question - housing
       {
@@ -98,10 +113,30 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         {
           name: "luxury",
           img: "blah2",
-          label: "Mid Range Home"
+          label: "Luxury Home"
         }]
       }
-    ] // end of page housing
+    ], // end of page housing
+
+    // Page food
+    // ----------------------------------------------------------
+
+    food: [
+
+      // Question - food
+      {
+        name: 'food',
+        label: "What restaurant do you like to go?",
+        value: 'midRangeFood',
+        answers: [{
+          name: 'midRangeFood',
+          img: 'blah',
+          label: "Mid range restaurant"
+        }
+        ]
+      }
+
+    ] // end of page food
 
   }; // end of $rootScope.pages
 
