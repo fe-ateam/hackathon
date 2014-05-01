@@ -29,6 +29,9 @@ li {
   list-style: none;
   display: inline-block;
 }
+#nav-questions li.active a {
+  color: #4ab6f9;
+}
 #nav-questions li a {
   display: block;
   background-color: #eee;

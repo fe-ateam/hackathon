@@ -1,8 +1,12 @@
 angular.module('app')
 
 
-.controller('mainController', function($scope, $log, $http) {
+.controller('mainController', function($scope, $log, $http, $location) {
   $log.log('mainController');
+
+  $scope.isPageActive = function(name) {
+    return $location.path().indexOf(name) > -1;
+  };
 
   $scope.cities = [];
 
