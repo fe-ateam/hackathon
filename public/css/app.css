@@ -4,6 +4,10 @@ html {
   overflow-y: hidden;
 }
 
+li {
+  list-style: none;
+}
+
 /* Quetion nav bar ------------ */
 #nav-questions-c {
   z-index: 999;
@@ -48,7 +52,7 @@ html {
 }
 
 .page h1 {
-  font-size: 60px;
+  font-size: 40px;
 }
 .page a {
   margin-top: 50px;
