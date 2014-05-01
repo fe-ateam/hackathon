@@ -28,10 +28,9 @@ angular.module('app')
 		}
 		,
 		template: '<label ng-repeat-start="answer in fieldInfo.answers" for="{{ fieldInfo.name }}">{{ answer.label }}</label>'
-					+ '<input ng-repeat-end name="{{ fieldInfo.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"/>'
+					+ '<input ng-repeat-end ng-checked="fieldInfo.value ===  answer.name" name="{{ fieldInfo.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"/>'
 		,
 		link: function(scope, element, attrs) {
-			
 		}
   	};
 })
@@ -46,7 +45,7 @@ angular.module('app')
 		,
 		template: '<label for="{{ fieldInfo.name }}">{{ fieldInfo.label }}</label>'
 					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}">'
-					+ '	<option ng-repeat="answer in fieldInfo.answers" value="{{ answer.value }}">{{ answer.label }}</option>'
+					+ '	<option ng-repeat="answer in fieldInfo.answers" ng-selected="fieldInfo.value ===  answer.name" value="{{ answer.value }}">{{ answer.label }}</option>'
 					+ '</select>'
 		,
 		link: function(scope, element, attrs) {
