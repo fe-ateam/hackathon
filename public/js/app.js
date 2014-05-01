@@ -62,9 +62,13 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
       // Question - location
       {
-        name: 'location',
-        type: 'text' // Replace w/ dropdown
-      }
+        name: 'cityState',
+        value: "blah",
+        answers: [
+          { name: "blah", img: "blah", label: "San Jose, CA" },
+          { name: "blah2", img: "blah2", label: "San Francisco, CA" }
+        ]
+      }
 
     ], // end of page location
 

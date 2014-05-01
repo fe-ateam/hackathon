@@ -45,9 +45,9 @@ angular.module('app')
 		}
 		,
 		template: '<label for="{{ fieldInfo.name }}">{{ fieldInfo.label }}</label>'
-					+ '<input numbers-only name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}" type="{{ fieldInfo.type }}" ng-model="fieldInfo.value" max="{{ fieldInfo.max }}" min="{{ fieldInfo.min }}"/>'
-					+ '<span class="error" ng-show="agesForm.input.$error.required">Required!</span>'
-					+ '<span class="error" ng-show="agesForm.input.$error.number">Not valid number!</span>'
+					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}">'
+					+ '	<option ng-repeat="answer in fieldInfo.answers" value="{{ answer.value }}">{{ answer.label }}</option>'
+					+ '</select>'
 		,
 		link: function(scope, element, attrs) {
 			
