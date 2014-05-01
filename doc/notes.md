@@ -74,7 +74,7 @@ We might need a mapping of answer IDs to Numbeo cost item IDs (or item names).
 ```
 
 
-```
+```javascript
 [{Ages : [{
         name: 'currentAge',
         label: 'What is Your Current Age?',
