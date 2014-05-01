@@ -1,10 +1,22 @@
-var app = angular.module('app', ['ui.bootstrap']);
+angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
-app.controller('MainController', function($scope, $http) {
 
-  $scope.cities = [];
+.config(function($routeProvider) {
 
-  $http.get('/cities').success(function(cities) {
-    $scope.cities = cities;
-  });
+  $routeProvider
+
+    .when('/', {
+      templateUrl: 'partials/home.html',
+      controller: 'homeController'
+    })
+
+    .when('/location', {
+      templateUrl: 'partials/location.html',
+      controller: 'locationController'
+    })
+
+    .when('/ages', {
+      templateUrl: 'partials/ages.html',
+      controller: 'agesController'
+    });
 });

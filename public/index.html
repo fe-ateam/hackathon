@@ -26,9 +26,9 @@
 </head>
 
 
-<body ng-controller="MainController" ng-cloak>
+<body ng-controller="mainController" ng-cloak>
 
-  <h3>Cities</h3>
+<!--   <h3>Cities</h3>
   <ul>
     <li ng-repeat="city in cities">{{ city.name }}, {{ city.state }}</li>
   </ul>
@@ -47,11 +47,19 @@
   <button type="button" class="btn btn-info">Info button</button>
   <button type="button" class="btn btn-warning">Warning button</button>
   <button type="button" class="btn btn-danger">Danger button</button>
+ -->
+
+  <div class="page {{ pageClass }}" ng-view></div>
+
 
   <script src="/lib/angular/angular.js"></script>
+  <script src="/lib/angular-route/angular-route.js"></script>
   <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/lib/angular-animate/angular-animate.js"></script>
 
   <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/directives.js"></script>
 
 </body>
 </html>
