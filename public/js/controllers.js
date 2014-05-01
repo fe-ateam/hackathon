@@ -44,7 +44,7 @@ angular.module('app')
   $log.log('housingController');
 
   $scope.pageClass = 'page-housing';
-  $scope.pageTitle = 'What house do you like to live in?';
+  $scope.pageTitle = "What house do you like to live in?";
   $scope.inputFields = $scope.pages.housing;
 
   $scope.goBack = function() {
@@ -62,6 +62,8 @@ angular.module('app')
   $log.log('foodController');
 
   $scope.pageClass = 'page-food';
+  $scope.pageTitle = "What restaurant would you usually go?";
+  $scope.inputFields = $scope.pages.food;
 })
 
 
@@ -70,6 +72,8 @@ angular.module('app')
   $log.log('transportationController');
 
   $scope.pageClass = 'page-transportation';
+  $scope.pageTitle = "How would you like to move from point A to B?";
+  $scope.inputFields = $scope.pages.transportation;
 })
 
 
@@ -78,6 +82,8 @@ angular.module('app')
   $log.log('travelController');
 
   $scope.pageClass = 'page-travel';
+  $scope.pageTitle = "How often do you like to travel?";
+  $scope.inputFields = $scope.pages.travel;
 })
 
 

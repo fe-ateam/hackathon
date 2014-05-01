@@ -1,1 +1,12 @@
-<h1>Food</h1>
+<h1>{{ pageTitle }}</h1>
+
+<form name="foodForm">
+<div ng-repeat="inputField in inputFields" />
+  <div select-multi-fields
+    field-info="inputField">
+  </div>
+</div>
+</form>
+
+<a href="#housing" ng-click="goBack()" class="btn btn-default btn-lg">Previous</a>
+<a href="#transportation" ng-click="goNext()" class="btn btn-primary btn-lg">Next</a>
