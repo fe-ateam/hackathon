@@ -188,3 +188,21 @@ html {
 @keyframes rotateOutNewspaper {
   to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
 }
+
+
+.panel {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-name
+{
+  width: 300px;
+  font: 18px arial bold;
+}
+
+.input-group {
+  width: 200px;
+  float: right;
+}

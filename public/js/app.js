@@ -18,5 +18,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     .when('/ages', {
       templateUrl: 'partials/ages.html',
       controller: 'agesController'
+    })
+
+    .when('/summary', {
+      templateUrl: 'partials/summary.html',
+      controller: 'summaryController'
     });
 });

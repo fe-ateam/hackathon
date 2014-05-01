@@ -30,4 +30,24 @@ angular.module('app')
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
+})
+
+.controller('summaryController', function($scope, $log) {
+  $scope.pageClass = 'page-summary';
+
+  $scope.categories = [
+    {'name': 'San Fran', 'value': 1000},
+    {'name': 'San Jose', 'value': 300},
+  ]
+  $scope.total = function(){
+    var total = 0;
+    angular.forEach($scope.categories, function(category){
+      if(category.value != '')
+      {
+        total += parseInt(category.value);
+      }
+    })
+    return total;
+};
+
 });
