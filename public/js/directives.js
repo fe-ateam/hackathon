@@ -8,8 +8,8 @@ angular.module('app')
 			fieldInfo: '=fieldInfo'
 		}
 		,
-		template: '<label for="{{ fieldInfo.fieldName }}">{{ fieldInfo.fieldLabel }}</label>'
-					+ '<input numbers-only name="{{ fieldInfo.fieldName }}" id="{{ fieldInfo.fieldName }}" type="{{ fieldInfo.fieldType }}" ng-model="fieldInfo.fieldValue" max="{{ fieldInfo.max }}" min="{{ fieldInfo.min }}"/>'
+		template: '<label for="{{ fieldInfo.name }}">{{ fieldInfo.label }}</label>'
+					+ '<input numbers-only name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}" type="{{ fieldInfo.type }}" ng-model="fieldInfo.value" max="{{ fieldInfo.max }}" min="{{ fieldInfo.min }}"/>'
 					+ '<span class="error" ng-show="agesForm.input.$error.required">Required!</span>'
 					+ '<span class="error" ng-show="agesForm.input.$error.number">Not valid number!</span>'
 		,
