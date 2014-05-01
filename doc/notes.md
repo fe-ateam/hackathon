@@ -72,3 +72,44 @@ We might need a mapping of answer IDs to Numbeo cost item IDs (or item names).
   // , ...
 }
 ```
+
+
+```
+[{Ages : [{
+        name: 'currentAge',
+        label: 'What is Your Current Age?',
+        value: '55',
+        type: 'text',
+        validation: 'numbers-only',
+        min: 18,
+        max: 80
+    },
+    {
+        name: 'retirementAge',
+        label: 'What is Your Retirement Age?',
+        value: '65',
+        type: 'text',
+        validation: 'numbers-only',
+        min: 18,
+        max: 80
+   }]
+  },
+  {Housing: [{
+
+        name : 'housingType',
+        label: "Tell us about the type of house you would like to own.",
+        value: "midRangeHome",
+        type: "radio",
+        answers: [{
+          name : "midRangeHome",
+          img : "blah",
+          label : "Mid Range Home"
+        },
+        {
+          name : "luxury",
+          img : "blah2",
+          label : "Mid Range Home"
+        }]
+    }]
+  }]
+```
