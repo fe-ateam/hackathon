@@ -1,21 +1,21 @@
+<h1>Summary</h1>
+
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Your Summary</div>
 
   <table class="table">
   	<tbody>
   		<tr ng-repeat= "category in summary">
   			<td class="category-name">{{ category.label }}</td>
 
-  			<td class="input-group">
+  			<td class="input-group input-group-sm">
   			  <span class="input-group-addon">$</span>
   			  <input type="text" class="form-control" ng-model="category.price">
   			  <span class="input-group-addon">.00</span>
   			</td>
   		</tr>
 
-  		<tr>
-  			<td>Total Amount:</td>
+  		<tr class="total">
+  			<td class="category-name">Total Amount:</td>
   			<td>{{ total() }}</td>
   		</tr>
   	</tbody>
