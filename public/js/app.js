@@ -70,7 +70,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'cityState',
-        value: { name:'San Jose, CA', label: 'San Jose, CA'},
+        value: { name:'San Francisco, CA', label: 'San Francisco, CA'},
         answers: [
         ]
       }
