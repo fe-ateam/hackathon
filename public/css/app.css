@@ -52,6 +52,20 @@ li {
   text-align: center;
 }
 
+.answerSelection {
+  width: 150px;
+  float:left;
+}
+.answerSelectionContainer:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.answerSelection span {
+  width: 50px;
+  font-size: 35px;
+}
+
 .page {
   position: absolute;
   top: 0;
@@ -72,23 +86,25 @@ li {
 
 /* PAGES
 ============================================================================= */
-.page-home {
-  background: #00D0BC;
-  color: #00907c;
-}
-.page-location {
-  background: #E59400;
-  color: #a55400;
-}
-.page-ages {
-  background: #ffa6bb;
-  color: #9e0000;
-}
+.page-home           { background: #00D0BC; color: #00907c; }
+.page-location       { background: #ffbb78; color: #6b421b; }
+.page-ages           { background: #8fd38f; color: #1a6b1a; }
+.page-housing        { background: #5f9ae8; color: #244a7c; }
+.page-food           { background: #ea6460; color: #702928; }
+.page-transportation { background: #8c77aa; color: #2d1152; }
+.page-travel         { background: #f7a559; color: #8e592a; }
+.page-hobby          { background: #76c976; color: #1d661d; }
+.page-summary        { background: #50c8d3; color: #0d7882; }
 
 .page-location #cityState {
   font-size: 30px;
 }
 
+.page-summary .panel {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .page-summary.page a {
   margin-top: 5px;
 }
@@ -110,71 +126,131 @@ li {
 .page-summary .table input[type="text"] {
   text-align: right;
 }
+.page-summary .category-name {
+  width: 300px;
+  font: 18px arial bold;
+}
+.page-summary .input-group {
+  width: 200px;
+  float: right;
+}
 
 /* ANIMATIONS
 ============================================================================= */
-
-.page.ng-leave {
-  z-index: 777;
-
-  -webkit-animation: slideOutDown 0.5s both ease-in;
-  -moz-animation: slideOutDown 0.5s both ease-in;
-  animation: slideOutDown 0.5s both ease-in;
-}
-.page.ng-enter {
-  z-index: 555;
-
-  -webkit-animation: slideInTop 0.5s both ease-in;
-  -moz-animation: slideInTop 0.5s both ease-in;
-  animation: slideInTop 0.5s both ease-in;
-}
-
-.page-summary.ng-enter {
-  -webkit-animation: slideInDown 0.5s both ease-in;
-  -moz-animation: slideInDown 0.5s both ease-in;
-  animation: slideInDown 0.5s both ease-in;
-}
+.page.ng-leave  { z-index: 777; }
+.page.ng-enter  { z-index: 555; }
 
 /* page specific animations ------------------------ */
 
-/* home -------------------------- */
-/*.page-home.ng-leave {
-  -webkit-animation: slideOutDown 0.5s both ease-in;
-  -moz-animation: slideOutDown 0.5s both ease-in;
-  animation: slideOutDown 0.5s both ease-in;
+/* home */
+.page-home.ng-leave         {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation: rotateFall 1s both ease-in;
+  -moz-transform-origin: 0% 0%;
+  -moz-animation: rotateFall 1s both ease-in;
+  transform-origin: 0% 0%;
+  animation: rotateFall 1s both ease-in;
 }
-.page-home.ng-enter {
-  -webkit-animation: slideInTop 0.5s both ease-in;
-  -moz-animation: slideInTop 0.5s both ease-in;
-  animation: slideInTop 0.5s both ease-in;
-}*/
+.page-home.ng-enter     {
+  -webkit-animation: scaleUp 0.5s both ease-in;
+  -moz-animation: scaleUp 0.5s both ease-in;
+  animation: scaleUp 0.5s both ease-in;
+}
 
-/* location ------------------------ */
-/*.page-location.ng-leave {
-  -webkit-animation: slideOutDown 0.5s both ease-in;
-  -moz-animation: slideOutDown 0.5s both ease-in;
-  animation: slideOutDown 0.5s both ease-in;
+/* location */
+.page-location.ng-leave        {
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.5s both ease-in;
 }
-.page-location.ng-enter {
-  -webkit-animation: slideInTop 0.5s both ease-in;
-  -moz-animation: slideInTop 0.5s both ease-in;
-  animation: slideInTop 0.5s both ease-in;
-}*/
+.page-location.ng-enter    {
+  -webkit-animation: slideInRight 0.5s both ease-in;
+  -moz-animation: slideInRight 0.5s both ease-in;
+  animation: slideInRight 0.5s both ease-in;
+}
 
-/* ages ---------------------- */
-/*.page-ages.ng-leave {
+/* ages */
+.page-ages.ng-leave      {
+  -webkit-animation: slideOutUp .5s both ease-in;
+  -moz-animation: slideOutUp .5s both ease-in;
+  animation: slideOutUp .5s both ease-in;
+}
+.page-ages.ng-enter    {
+  -webkit-animation: slideInUp 0.5s both ease-in;
+  -moz-animation: slideInUp 0.5s both ease-in;
+  animation: slideInUp 0.5s both ease-in;
+}
+
+/* housing */
+.page-housing.ng-leave {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation: rotateFall 1s both ease-in;
+  -moz-transform-origin: 0% 0%;
+  -moz-animation: rotateFall 1s both ease-in;
+  transform-origin: 0% 0%;
+  animation: rotateFall 1s both ease-in;
+}
+.page-housing.ng-enter {
+  -webkit-animation: slideInLeft 0.5s both ease-in;
+  -moz-animation: slideInLeft 0.5s both ease-in;
+  animation: slideInLeft 0.5s both ease-in;
+}
+
+/* food */
+.page-food.ng-leave {
+  -webkit-animation: slideOutRight 0.5s both ease-in;
+  -moz-animation: slideOutRight 0.5s both ease-in;
+  animation: slideOutRight 0.5s both ease-in;
+}
+.page-food.ng-enter {
+  -webkit-animation: slideInRight 0.5s both ease-in;
+  -moz-animation: slideInRight 0.5s both ease-in;
+  animation: slideInRight 0.5s both ease-in;
+}
+
+/* transportation */
+.page-transportation.ng-leave {
   -webkit-animation: slideOutDown 0.5s both ease-in;
   -moz-animation: slideOutDown 0.5s both ease-in;
   animation: slideOutDown 0.5s both ease-in;
 }
-.page-ages.ng-enter {
-  -webkit-animation: slideInTop 0.5s both ease-in;
-  -moz-animation: slideInTop 0.5s both ease-in;
-  animation: slideInTop 0.5s both ease-in;
-}*/
+.page-transportation.ng-enter {
+  -webkit-animation: slideInUp 0.5s both ease-in;
+  -moz-animation: slideInUp 0.5s both ease-in;
+  animation: slideInUp 0.5s both ease-in;
+}
+
+/* travel */
+.page-travel.ng-leave {
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.5s both ease-in;
+}
+.page-travel.ng-enter {
+  -webkit-animation: slideInLeft 0.5s both ease-in;
+  -moz-animation: slideInLeft 0.5s both ease-in;
+  animation: slideInLeft 0.5s both ease-in;
+}
+
+/* hobby */
+.page-hobby.ng-leave {
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation: rotateFall 1s both ease-in;
+  -moz-transform-origin: 0% 0%;
+  -moz-animation: rotateFall 1s both ease-in;
+  transform-origin: 0% 0%;
+  animation: rotateFall 1s both ease-in;
+}
+.page-hobby.ng-enter {
+  -webkit-animation: slideInUp 0.5s both ease-in;
+  -moz-animation: slideInUp 0.5s both ease-in;
+  animation: slideInUp 0.5s both ease-in;
+}
+
+/* Animation keyframes  ------------------------- */
 
 /* rotate and fall */
-/*@-webkit-keyframes rotateFall {
+@-webkit-keyframes rotateFall {
   0% { -webkit-transform: rotateZ(0deg); }
   20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
   40% { -webkit-transform: rotateZ(17deg); }
@@ -194,60 +270,107 @@ li {
   40% { transform: rotateZ(17deg); }
   60% { transform: rotateZ(16deg); }
   100% { transform: translateY(100%) rotateZ(17deg); }
-}*/
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+  to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+  to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+  to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
 
 /* scale up */
-/*@keyframes scaleUp {
-  from { opacity: 0.3; -webkit-transform: scale(0.8); }
+@keyframes scaleUp {
+  from    { opacity: 0.3; -webkit-transform: scale(0.8); }
 }
 @-moz-keyframes scaleUp {
-  from { opacity: 0.3; -moz-transform: scale(0.8); }
+  from    { opacity: 0.3; -moz-transform: scale(0.8); }
 }
 @-webkit-keyframes scaleUp {
-  from { opacity: 0.3; -webkit-transform: scale(0.8); }
-}*/
+  from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the left */
+@keyframes slideInLeft {
+  from  { transform: translateX(-100%); }
+  to    { transform: translateX(0); }
+}
+@-moz-keyframes slideInLeft {
+  from  { -moz-transform: translateX(-100%); }
+  to    { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInLeft {
+  from  { -webkit-transform:translateX(-100%); }
+  to    { -webkit-transform: translateX(0); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from  { transform: translateX(100%); }
+  to    { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+  from  { -moz-transform: translateX(100%); }
+  to    { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+  from  { -webkit-transform:translateX(100%); }
+  to    { -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from  { transform: translateY(100%); }
+  to    { transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+  from  { -moz-transform: translateY(100%); }
+  to    { -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+  from  { -webkit-transform: translateY(100%); }
+  to    { -webkit-transform: translateY(0); }
+}
 
 /* slide in from the top */
-@keyframes slideInTop {
+@keyframes slideInDown {
   from { transform: translateY(-100%); }
   to   { transform: translateY(0); }
 }
-@-moz-keyframes slideInTop {
+@-moz-keyframes slideInDown {
   from { -moz-transform: translateY(-100%); }
   to   { -moz-transform: translateY(0); }
 }
-@-webkit-keyframes slideInTop {
+@-webkit-keyframes slideInDown {
   from { -webkit-transform: translateY(-100%); }
   to   { -webkit-transform: translateY(0); }
 }
 
-/* slide in from the bottom */
-@keyframes slideInDown {
-  from { transform: translateY(100%); }
-  to   { transform: translateY(0); }
+/* slide out to the left */
+@keyframes slideOutLeft {
+  to    { transform: translateX(-100%); }
 }
-@-moz-keyframes slideInDown {
-  from { -moz-transform: translateY(100%); }
-  to   { -moz-transform: translateY(0); }
+@-moz-keyframes slideOutLeft {
+  to    { -moz-transform: translateX(-100%); }
 }
-@-webkit-keyframes slideInDown {
-  from { -webkit-transform: translateY(100%); }
-  to   { -webkit-transform: translateY(0); }
+@-webkit-keyframes slideOutLeft {
+  to    { -webkit-transform: translateX(-100%); }
 }
 
-/* slide in from the bottom */
-/*@keyframes slideInUp {
-  from { transform: translateY(100%); }
-  to   { transform: translateY(0); }
+/* slide out to the right */
+@keyframes slideOutRight {
+  to    { transform: translateX(100%); }
 }
-@-moz-keyframes slideInUp {
-  from { -moz-transform: translateY(100%); }
-  to   { -moz-transform: translateY(0); }
+@-moz-keyframes slideOutRight {
+  to    { -moz-transform: translateX(100%); }
 }
-@-webkit-keyframes slideInUp {
-  from { -webkit-transform: translateY(100%); }
-  to   { -webkit-transform: translateY(0); }
-}*/
+@-webkit-keyframes slideOutRight {
+  to    { -webkit-transform: translateX(100%); }
+}
 
 /* slide out to the bottom */
 @keyframes slideOutDown {
@@ -260,47 +383,13 @@ li {
   to { -webkit-transform: translateY(100%); }
 }
 
-/* rotate out newspaper */
-/*@-webkit-keyframes rotateOutNewspaper {
-  to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+/* slide out to the top */
+@keyframes slideOutUp {
+  to { transform: translateY(-100%); }
 }
-@-moz-keyframes rotateOutNewspaper {
-  to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+@-moz-keyframes slideOutUp {
+  to { -moz-transform: translateY(-100%); }
 }
-@keyframes rotateOutNewspaper {
-  to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
-}*/
-
-
-.panel {
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.category-name
-{
-  width: 300px;
-  font: 18px arial bold;
-}
-
-.input-group {
-  width: 200px;
-  float: right;
-}
-
-.answerSelection {
-  width: 150px;
-  float:left;
-}
-
-.answerSelectionContainer:after {
-    clear: both;
-    content: "";
-    display: table;
-}
-
-.answerSelection span {
-  width: 50px;
-  font-size: 35px;
+@-webkit-keyframes slideOutUp {
+  to { -webkit-transform: translateY(-100%); }
 }
