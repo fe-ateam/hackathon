@@ -19,7 +19,7 @@ angular.module('app')
   	};
 })
 
-.directive('selectMultiFields', function() {
+.directive('selectMultiFields', function($log) {
    	return {
     	restrict: 'AE'
     	,
@@ -35,7 +35,7 @@ angular.module('app')
 		,
 		link: function(scope, element, attrs) {
 
-			console.log("Starting Value: " +
+			$log.log("Starting Value: " +
 				scope.fieldInfo.value);
 
 			// removes all selected values from rootscope
@@ -80,7 +80,7 @@ angular.module('app')
   	};
 })
 
-.directive('selectDropDownFields', function() {
+.directive('selectDropDownFields', function($log) {
    	return {
     	restrict: 'AE'
     	,
@@ -95,14 +95,14 @@ angular.module('app')
 		,
 		link: function(scope, element, attrs) {
 			scope.newValue = function(value) {
-			     console.log(value);
+			     $log.log(value);
 			}
 		}
   	};
 })
 
 
-.directive('numbersOnly', function(){
+.directive('numbersOnly', function($log){
 	return {
 		require: 'ngModel'
 		,
@@ -116,13 +116,13 @@ angular.module('app')
 				// this next if is necessary for when using ng-required on your input. 
 				// In such cases, when a letter is typed first, this parser will be called
 				// again, and the 2nd time, the value will be undefined
-				console.log("inputValue: '" + inputValue + "'");
-				console.log("scope.max" + scope.max)
+				$log.log("inputValue: '" + inputValue + "'");
+				$log.log("scope.max" + scope.max)
 				if (inputValue == undefined) return '' 
 				var transformedInput = inputValue.replace(/[^0-9]/g, '');
 
 				if (transformedInput!=inputValue) {
-					console.log("going to update value to " + transformedInput);
+					$log.log("going to update value to " + transformedInput);
 					mainController.$setViewValue(transformedInput);
 					mainController.$render();
 				}
