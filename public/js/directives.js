@@ -27,9 +27,11 @@ angular.module('app')
 			fieldInfo: '=fieldInfo'
 		}
 		,
-		template: '<label ng-repeat-start="answer in fieldInfo.answers" for="{{ fieldInfo.name }}">{{ answer.label }}</label>'
-					+ '<input ng-repeat-end name="{{ fieldInfo.name }}" value="{{ answer.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"'
-					+ ' ng-checked="answer.selected" ng-click="newValue(answer.name)"/>'
+		template:
+					'<div class="answerSelectionContainer"><div class="answerSelection" ng-repeat="answer in fieldInfo.answers" ><span class="{{ answer.icon }}"></span><br/>'
+					+ '<label for="{{ fieldInfo.name }}">{{ answer.label }}</label><br/>'
+					+ '<input name="{{ fieldInfo.name }}" value="{{ answer.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"'
+					+ ' ng-checked="answer.selected" ng-click="newValue(answer.name)"/></div></div>'
 		,
 		link: function(scope, element, attrs) {
 
@@ -141,22 +143,3 @@ angular.module('app')
 		}
 	};
 });
-
-/*
-		template: 'Hello {{ fieldName }} = "{{ fieldValue }}"'
-			+ '<span class="error" ng-show="agesForm.input.$error.required">'
-			+ 'Required!</span>'
-				+ '<span class="error" ng-show="agesForm.input.$error.number">'
-				+ 'Not valid number!</span>'
-			,
-		link: function (socpe, element, attrs) {
-			scope.$watch('fieldValue', function(){
-				updateFields();
-			});
-
-			function updateFields() {
-				FieldsService.put(scope.fieldName, scope.fieldValue);
-			}
-			
-		}
-*/

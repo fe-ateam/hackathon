@@ -278,3 +278,19 @@ li {
 .page-summary .table tr.total td {
   font-size: 1.4em !important;
 }
+
+.answerSelection {
+  width: 150px;
+  float:left;
+}
+
+.answerSelectionContainer:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.answerSelection span {
+  width: 50px;
+  font-size: 35px;
+}

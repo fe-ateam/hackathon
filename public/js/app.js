@@ -106,10 +106,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: "rentInCentre",
         type: "radio",
         answers: [
-          { name: "rentInCentre", img: "blah", label: "Rent in city centre", selected: true },
-          { name: "rentOutsideCentre", img: "blah2", label: "Rent outside of centre", selected: false },
-          { name: "buyInCentre", img: "blah2", label: "Buy in city centre", selected: false },
-          { name: "buyOutsideCentre", img: "blah2", label: "Buy outside of centre", selected: false }
+          { name: "rentInCentre", icon: "fa fa-building-o", label: "Rent in city centre", selected: true },
+          { name: "rentOutsideCentre", icon: "fa fa-home", label: "Rent outside of centre", selected: false },
+          { name: "buyInCentre", icon: "fa fa-building-o", label: "Buy in city centre", selected: false },
+          { name: "buyOutsideCentre", icon: "fa fa-home", label: "Buy outside of centre", selected: false }
         ]
       }
     ], // end of page housing
@@ -125,10 +125,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'midRangeFood',
         answers: [
-          { name: 'cookAtHome', img: 'blah', label: "Cook at home", selected: true },
-          { name: 'inexpensiveRestaurant', img: 'blah', label: "Inexpensive restaurant", selected: false },
-          { name: 'midRangeRestaurant', img: 'blah', label: "Mid-range restaurant", selected: false },
-          { name: 'expensiveRestaurant', img: 'blah', label: "Expensive restaurant", selected: false }
+          { name: 'cookAtHome', icon: 'glyphicon glyphicon-cutlery', label: "Cook at home", selected: true },
+          { name: 'inexpensiveRestaurant', icon: 'ci ci-dollar',  label: "Inexpensive restaurant", selected: false },
+          { name: 'midRangeRestaurant', icon: 'ci ci-two-dollar', label: "Mid-range restaurant", selected: false },
+          { name: 'expensiveRestaurant', icon: 'ci ci-three-dollar', label: "Expensive restaurant", selected: false }
         ]
       }
 
@@ -145,9 +145,9 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'bus',
         answers: [
-          { name: 'publicTransportation', img: 'blah', label: "Public transportation", selected: true },
-          { name: 'midRangeCar', img: 'blah2', label: "Mid-range car", selected: false },
-          { name: 'luxuryCar', img: 'blah3', label: "Luxury car", selected: false }
+          { name: 'publicTransportation', icon: 'ci ci-bus', label: "Public transportation", selected: true },
+          { name: 'midRangeCar', icon: 'ci ci-car', label: "Mid-range car", selected: false },
+          { name: 'luxuryCar', icon: 'ci ci-sports-car', label: "Luxury car", selected: false }
         ]
       }
 
@@ -181,11 +181,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'checkbox',
         value: ['golf', 'hiking'],
         answers: [
-          { name: 'golf', img: 'blah1', label: "Golf", selected: true },
-          { name: 'dancing', img: 'blah2', label: "Dancing", selected: false},
-          { name: 'fishing', img: 'blah3', label: "Fishing", selected: false },
-          { name: 'boating', img: 'blah3', label: "Boating", selected: true },
-          { name: 'gardening', img: 'blah3', label: "Gardening", selected: false }
+          { name: 'golf', icon: 'ci ci-golf', label: "Golf", selected: true },
+          { name: 'dancing', icon: 'glyphicon glyphicon-music', label: "Dancing", selected: false},
+          { name: 'fishing', icon: 'ci ci-fishing', label: "Fishing", selected: false },
+          { name: 'boating', icon: 'ci ci-boating', label: "Boating", selected: true },
+          { name: 'gardening', icon: 'ci ci-gardening', label: "Gardening", selected: false }
         ]
       }
     ] // end of Page hobby
