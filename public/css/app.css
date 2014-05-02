@@ -116,23 +116,18 @@ li {
 }
 .page-summary .table td.category-name {
   text-align: right;
+  width: 250px;
+  font-size: 1.2em;
+}
+.page-summary .table td.input-group {
+  width: 250px;
 }
 .page-summary .table tr.total td {
   font-size: 1.4em !important;
 }
-.page-summary .table tr.total td.total-amount {
-  text-align: right;
-}
+.page-summary .table tr.total td.total-amount,
 .page-summary .table input[type="text"] {
   text-align: right;
-}
-.page-summary .category-name {
-  width: 300px;
-  font: 18px arial bold;
-}
-.page-summary .input-group {
-  width: 200px;
-  float: right;
 }
 
 /* ANIMATIONS
