@@ -75,7 +75,6 @@ exports.getHousingMonthlyAmount = function(req, res) {
 
 	if (price === null)
 		_findItemsByCityAndCat(cityId, categoryName, function(items) {
-			console.log("in _findItemsByCityAndCat 1");
 			if(items == null){
 				res.send("404 Not Found");
 			}
@@ -90,7 +89,6 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			if (price != null){
 				res.send("" + _calculateInflationPrice(price, currAge, retAge));
 			}
-			console.log("end _findItemsByCityAndCat 1");
 		});
 
 	categoryName = "Buy Apartment Price";
@@ -99,7 +97,6 @@ exports.getHousingMonthlyAmount = function(req, res) {
 
 	if (price === null)
 		_findItemsByCityAndCat(cityId, categoryName, function(items) {
-			console.log("in _findItemsByCityAndCat 2");
 			if(items == null){
 				console.log("items null");
 				res.send("404 Not Found");
@@ -115,7 +112,6 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			if (price != null){
 				res.send("" + _calculateInflationPrice(price, currAge, retAge));
 			}
-			console.log("end _findItemsByCityAndCat 2");
 		});
 
 };
