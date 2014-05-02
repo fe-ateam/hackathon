@@ -207,6 +207,10 @@ angular.module('app')
 .controller('summaryController', function($scope, $log, $http, $timeout) {
   $scope.pageClass = 'page-summary';
 
+  var params = $scope.getCommonUrlParams();
+  var numYears = params.retAge - params.curAge;
+  $scope.years = numYears + (numYears > 1 ? ' years' : ' year');
+
   $scope.total = function() {
     var total = 0;
     angular.forEach($scope.summary, function(category) {
