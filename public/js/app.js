@@ -178,7 +178,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: ['golf', 'hiking'],
         answers: [
           { name: 'golf', img: 'blah1', label: "Golf", selected: true},
-          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck", selected: false},
+          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunk", selected: false},
           { name: 'hiking', img: 'blah3', label: "Hiking", selected: true }
         ]
       }
