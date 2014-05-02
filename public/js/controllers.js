@@ -7,15 +7,6 @@ angular.module('app')
   $scope.isPageActive = function(name) {
     return $location.path().indexOf(name) > -1;
   };
-
-  $scope.saveToSummary = function(name, price) {
-    for (var category in $scope.summary) {
-      if (category.name === name) {
-        category.price = price;
-        break;
-      }
-    }
-  };
 })
 
 
@@ -38,6 +29,7 @@ angular.module('app')
   $scope.goNext = function() {
     var city = $scope.inputFields[0].value;
     console.log(city.name);
+    // console.log($scope.pages.location[0].value.name);
   };
 })
 
@@ -54,9 +46,6 @@ angular.module('app')
       , retAge = $scope.inputFields[1].value;
 
     console.log('curAge = ' + curAge + ', retAge = ' + retAge);
-
-    // $http.post('url_to_send_ages');
-
   };
 })
 
@@ -70,11 +59,19 @@ angular.module('app')
   $scope.inputFields = $scope.pages.housing;
 
   $scope.goNext = function() {
-    var housing = $scope.inputFields[0].value;
+    var city = $scope.pages.location[0].value.name;
+    var curAge = $scope.pages.ages[0].value;
+    var retAge = $scope.pages.ages[1].value;
+    var housing = $scope.inputFields[0].value[0];
+    var url = '/housing/' + city + '/' + curAge + '/' + retAge + '/' + housing;
 
-    console.log('housing = ' + housing);
+    console.log(url);
 
-    // $http.post('url_to_send_housing');
+    $http.get(url).success(function(price) {
+      console.log(price);
+
+      $scope.saveToSummary('housing', price);
+    });
 
   };
 })

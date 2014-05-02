@@ -52,7 +52,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 })
 
 
-.run(function($rootScope, $http) {
+.run(function($rootScope, $log, $http) {
 
   $rootScope.pages = {
 
@@ -199,6 +199,17 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     { name: 'travel', label: "Travel", price: 0 },
     { name: 'hobby', label: "Hobby", price: 0 }
   ];
+
+  $rootScope.saveToSummary = function(name, price) {
+
+    angular.forEach($rootScope.summary, function(category) {
+      if (category.name === name) {
+        $log.log('Saving ... name = ' + category.name + ', price = ' + category.price);
+        category.price = price;
+        $log.log('Saved ... name = ' + category.name + ', price = ' + category.price);
+      }
+    });
+  };
 
 
   // Populate cities dropdown
