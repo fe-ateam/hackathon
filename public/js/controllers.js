@@ -114,17 +114,11 @@ angular.module('app')
 .controller('summaryController', function($scope, $log, $http) {
   $scope.pageClass = 'page-summary';
 
-  $scope.categories = [
-    {'name': 'San Fran', 'value': 1000},
-    {'name': 'San Jose', 'value': 300},
-  ];
-
   $scope.total = function() {
     var total = 0;
-    angular.forEach($scope.categories, function(category) {
-      if(category.value != '')
-      {
-        total += parseInt(category.value);
+    angular.forEach($scope.summary, function(category) {
+      if(category.price != '') {
+        total += parseInt(category.price);
       }
     });
 

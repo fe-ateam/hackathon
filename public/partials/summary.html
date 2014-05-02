@@ -1,34 +1,25 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Your Summary</div>
-  <div class="panel-body">
-    <p>Add Context Here</p>
-  </div>
 
   <table class="table">
-	<tbody>
-		<tr ng-repeat= "category in categories">
-			<td class="category-name">
-				{{category.name}}
-			</td>
+  	<tbody>
+  		<tr ng-repeat= "category in summary">
+  			<td class="category-name">{{ category.label }}</td>
 
-			<td class="input-group">
-			  <span class="input-group-addon">$</span>
-			  <input type="text" class="form-control" ng-model="category.value">
-			  <span class="input-group-addon">.00</span>
-			</td>
-		</tr>
+  			<td class="input-group">
+  			  <span class="input-group-addon">$</span>
+  			  <input type="text" class="form-control" ng-model="category.price">
+  			  <span class="input-group-addon">.00</span>
+  			</td>
+  		</tr>
 
-		<tr>
-			<td>
-				Total Amount:
-			</td>
-			<td>
-				{{total()}}
-			</td>
-		</tr>
-	</tbody>
-</table>
+  		<tr>
+  			<td>Total Amount:</td>
+  			<td>{{ total() }}</td>
+  		</tr>
+  	</tbody>
+  </table>
 </div>
 
 

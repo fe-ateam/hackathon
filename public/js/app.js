@@ -193,8 +193,12 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
   }; // end of $rootScope.pages
 
-  $rootScope.summary = {
-
-  };
+  $rootScope.summary = [
+    { name: 'housing', label: "Housing", price: 0 },
+    { name: 'food', label: "Food", price: 0 },
+    { name: 'transportation', label: "Transportation", price: 0 },
+    { name: 'travel', label: "Travel", price: 0 },
+    { name: 'hobby', label: "Hobby", price: 0 }
+  ];
 
 });
