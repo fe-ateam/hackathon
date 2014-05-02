@@ -106,8 +106,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: "midRangeHome",
         type: "radio",
         answers: [
-          { name: "midRangeHome", img: "blah", label: "Mid Range Home" },
-          { name: "luxuryHome", img: "blah2", label: "Luxury Home" }
+          { name: "rentInCentre", img: "blah", label: "Rent in city centre" },
+          { name: "rentOutsideCentre", img: "blah2", label: "Rent outside of centre" },
+          { name: "buyInCentre", img: "blah2", label: "Buy in city centre" },
+          { name: "buyOutsideCentre", img: "blah2", label: "Buy outside of centre" }
         ]
       }
     ], // end of page housing
@@ -123,8 +125,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'midRangeFood',
         answers: [
-          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant" },
-          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant" }
+          { name: 'cookAtHome', img: 'blah', label: "Cook at home" },
+          { name: 'inexpensiveRestaurant', img: 'blah', label: "Inexpensive restaurant" },
+          { name: 'midRangeRestaurant', img: 'blah', label: "Mid-range restaurant" },
+          { name: 'expensiveRestaurant', img: 'blah', label: "Expensive restaurant" }
         ]
       }
 
@@ -141,8 +145,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'bus',
         answers: [
-          { name: 'bus', img: 'blah', label: "Public bus" },
-          { name: 'car', img: 'blah2', label: "Car" },
+          { name: 'publicTransportation', img: 'blah', label: "Public transportation" },
+          { name: 'midRangeCar', img: 'blah2', label: "Mid-range car" },
           { name: 'luxuryCar', img: 'blah3', label: "Luxury car" }
         ]
       }
@@ -178,13 +182,19 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: '',
         answers: [
           { name: 'golf', img: 'blah1', label: "Golf" },
-          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck"},
-          { name: 'hiking', img: 'blah3', label: "Hiking" }
+          { name: 'dancing', img: 'blah2', label: "Dancing"},
+          { name: 'fishing', img: 'blah3', label: "Fishing" },
+          { name: 'boating', img: 'blah3', label: "Boating" },
+          { name: 'gardening', img: 'blah3', label: "Gardening" }
         ]
       }
 
     ] // end of Page hobby
 
   }; // end of $rootScope.pages
+
+  $rootScope.summary = {
+
+  };
 
 });

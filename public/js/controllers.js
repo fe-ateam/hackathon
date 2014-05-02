@@ -7,12 +7,6 @@ angular.module('app')
   $scope.isPageActive = function(name) {
     return $location.path().indexOf(name) > -1;
   };
-
-  $scope.cities = [];
-
-  $http.get('/cities').success(function(cities) {
-    $scope.cities = cities;
-  });
 })
 
 
@@ -25,44 +19,59 @@ angular.module('app')
 
 
 // Location
-.controller('locationController', function($scope, $log) {
+.controller('locationController', function($scope, $log, $http) {
   $log.log('locationController');
 
   $scope.pageClass = 'page-location';
   $scope.pageTitle = 'Where do you want to retire?';
   $scope.inputFields = $scope.pages.location;
+
+  $scope.goNext = function() {
+    console.log($scope.inputFields[0].value);
+  };
 })
 
 
 // Ages
-.controller('agesController', function($scope, $log) {
+.controller('agesController', function($scope, $log, $http) {
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
   $scope.inputFields = $scope.pages.ages;
+
+  $scope.goNext = function() {
+    var curAge = $scope.inputFields[0].value
+      , retAge = $scope.inputFields[1].value;
+
+    console.log('curAge = ' + curAge + ', retAge = ' + retAge);
+
+    // $http.post('url_to_send_ages');
+
+  };
 })
 
 
 // Housing
-.controller('housingController', function($scope, $log) {
+.controller('housingController', function($scope, $log, $http) {
   $log.log('housingController');
 
   $scope.pageClass = 'page-housing';
   $scope.pageTitle = "What house do you like to live in?";
   $scope.inputFields = $scope.pages.housing;
 
-  $scope.goBack = function() {
-
-  };
-
   $scope.goNext = function() {
+    var housing = $scope.inputFields[0].value;
+
+    console.log('housing = ' + housing);
+
+    // $http.post('url_to_send_housing');
 
   };
 })
 
 
 // Food
-.controller('foodController', function($scope, $log) {
+.controller('foodController', function($scope, $log, $http) {
   $log.log('foodController');
 
   $scope.pageClass = 'page-food';
@@ -72,7 +81,7 @@ angular.module('app')
 
 
 // Transportation
-.controller('transportationController', function($scope, $log) {
+.controller('transportationController', function($scope, $log, $http) {
   $log.log('transportationController');
 
   $scope.pageClass = 'page-transportation';
@@ -82,17 +91,17 @@ angular.module('app')
 
 
 // Travel
-.controller('travelController', function($scope, $log) {
+.controller('travelController', function($scope, $log, $http) {
   $log.log('travelController');
 
   $scope.pageClass = 'page-travel';
-  $scope.pageTitle = "How often do you like to travel?";
+  $scope.pageTitle = "How often do you travel every year?";
   $scope.inputFields = $scope.pages.travel;
 })
 
 
 // Hobby
-.controller('hobbyController', function($scope, $log) {
+.controller('hobbyController', function($scope, $log, $http) {
   $log.log('hobbyController');
 
   $scope.pageClass = 'page-hobby';
@@ -102,7 +111,7 @@ angular.module('app')
 
 
 // Summary
-.controller('summaryController', function($scope, $log) {
+.controller('summaryController', function($scope, $log, $http) {
   $scope.pageClass = 'page-summary';
 
   $scope.categories = [
