@@ -63,10 +63,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'cityState',
-        value: "blah2",
+        value: "San Jose, CA",
         answers: [
-          { name: "blah", img: "blah", label: "San Jose, CA" },
-          { name: "blah2", img: "blah2", label: "San Francisco, CA" }
+          { img: "blah", label: "San Jose, CA" },
+          { img: "blah2", label: "San Francisco, CA" }
         ]
       }
 
@@ -188,7 +188,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
           { name: 'gardening', img: 'blah3', label: "Gardening", selected: false }
         ]
       }
-
     ] // end of Page hobby
 
   }; // end of $rootScope.pages
