@@ -106,8 +106,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: "midRangeHome",
         type: "radio",
         answers: [
-          { name: "midRangeHome", img: "blah", label: "Mid Range Home" },
-          { name: "luxuryHome", img: "blah2", label: "Luxury Home" }
+          { name: "midRangeHome", img: "blah", label: "Mid Range Home", selected: true },
+          { name: "luxuryHome", img: "blah2", label: "Luxury Home", selected: false  }
         ]
       }
     ], // end of page housing
@@ -123,8 +123,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'midRangeFood',
         answers: [
-          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant" },
-          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant" }
+          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant", selected: true },
+          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant", selected: false }
         ]
       }
 
@@ -141,9 +141,9 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'bus',
         answers: [
-          { name: 'bus', img: 'blah', label: "Public bus" },
-          { name: 'car', img: 'blah2', label: "Car" },
-          { name: 'luxuryCar', img: 'blah3', label: "Luxury car" }
+          { name: 'bus', img: 'blah', label: "Public bus", selected: true },
+          { name: 'car', img: 'blah2', label: "Car", selected: false},
+          { name: 'luxuryCar', img: 'blah3', label: "Luxury car", selected: false }
         ]
       }
 
@@ -175,11 +175,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'hobby',
         type: 'checkbox',
-        value: '',
+        value: ['golf', 'hiking'],
         answers: [
-          { name: 'golf', img: 'blah1', label: "Golf" },
-          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck"},
-          { name: 'hiking', img: 'blah3', label: "Hiking" }
+          { name: 'golf', img: 'blah1', label: "Golf", selected: true},
+          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck", selected: false},
+          { name: 'hiking', img: 'blah3', label: "Hiking", selected: true }
         ]
       }
 
