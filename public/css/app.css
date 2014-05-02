@@ -63,7 +63,8 @@ li {
 }
 
 .page h1 {
-  font-size: 35px;
+  font-size: 30px;
+  margin-bottom: 0.5em;
 }
 .page a {
   margin-top: 50px;
@@ -71,13 +72,6 @@ li {
 .page-summary.page a {
   margin-top: 5px;
 }
-/*#location {
-  position: absolute;
-  color: #333;
-  text-align: center;
-  top: 50px;
-  width: 100%;
-}*/
 
 /* PAGES
 ============================================================================= */
@@ -270,4 +264,17 @@ li {
 .input-group {
   width: 200px;
   float: right;
+}
+
+.page-summary .panel-heading {
+  font-size: 1.5em !important;
+}
+.page-summary .table td {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+.page-summary .table td.category-name {
+  text-align: right;
+}
+.page-summary .table tr.total td {
+  font-size: 1.4em !important;
 }

@@ -28,9 +28,52 @@ angular.module('app')
 		}
 		,
 		template: '<label ng-repeat-start="answer in fieldInfo.answers" for="{{ fieldInfo.name }}">{{ answer.label }}</label>'
-					+ '<input ng-repeat-end ng-checked="fieldInfo.value ===  answer.name" name="{{ fieldInfo.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"/>'
+					+ '<input ng-repeat-end name="{{ fieldInfo.name }}" value="{{ answer.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"'
+					+ ' ng-checked="answer.selected === true" ng-click="newValue(answer.name)"/>'
 		,
 		link: function(scope, element, attrs) {
+
+			console.log("Starting Value: " +
+				scope.fieldInfo.value);
+
+			// removes all selected values from rootscope
+			function clearSelectedValues()
+			{
+				scope.fieldInfo.value = [];
+				for (var index in scope.fieldInfo.answers)
+			    {
+			    	scope.fieldInfo.answers[index].selected = false;
+			    }
+			}
+
+			scope.newValue = function(value) {
+
+				var element = angular.element( document.querySelector( "#" + value ) )
+					selected = element.prop( "checked");
+
+				// radio buttons do not allow for multiple selection
+				if (element.attr("type") === "radio")
+					clearSelectedValues();
+
+				// update the individual items selected boolean
+		     	for (var index in scope.fieldInfo.answers)
+			     	if (scope.fieldInfo.answers[index].name === value)
+			     		scope.fieldInfo.answers[index].selected = selected;
+
+			    // update the list of selected values
+			    if (selected)
+			    {
+			     	if (scope.fieldInfo.value.indexOf(value) < 0)
+			     		scope.fieldInfo.value.push(value);
+			    }
+			    else
+			    {
+					var index = scope.fieldInfo.value.indexOf(value);
+			     	if (index > -1) {
+					    scope.fieldInfo.value.splice(index, 1);
+					}
+			    }
+			}
 		}
   	};
 })
@@ -44,12 +87,14 @@ angular.module('app')
 		}
 		,
 		template: '<label for="{{ fieldInfo.name }}">{{ fieldInfo.label }}</label>'
-					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}">'
-					+ '	<option ng-repeat="answer in fieldInfo.answers" ng-selected="fieldInfo.value ===  answer.name" value="{{ answer.value }}">{{ answer.label }}</option>'
+					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}" ng-model="fieldInfo.value" ng-change="newValue(value)">'
+					+ '	<option ng-repeat="answer in fieldInfo.answers" ng-selected="fieldInfo.value ===  answer.name" value="{{ answer.value }}" >{{ answer.label }}</option>'
 					+ '</select>'
 		,
 		link: function(scope, element, attrs) {
-			
+			scope.newValue = function(value) {
+			     console.log(value);
+			}
 		}
   	};
 })

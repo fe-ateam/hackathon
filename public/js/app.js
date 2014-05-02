@@ -103,11 +103,13 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - housing
       {
         name: 'housingType',
-        value: "midRangeHome",
+        value: "rentInCentre",
         type: "radio",
         answers: [
-          { name: "midRangeHome", img: "blah", label: "Mid Range Home" },
-          { name: "luxuryHome", img: "blah2", label: "Luxury Home" }
+          { name: "rentInCentre", img: "blah", label: "Rent in city centre", selected: true },
+          { name: "rentOutsideCentre", img: "blah2", label: "Rent outside of centre", selected: false },
+          { name: "buyInCentre", img: "blah2", label: "Buy in city centre", selected: false },
+          { name: "buyOutsideCentre", img: "blah2", label: "Buy outside of centre", selected: false }
         ]
       }
     ], // end of page housing
@@ -123,8 +125,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'midRangeFood',
         answers: [
-          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant" },
-          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant" }
+          { name: 'cookAtHome', img: 'blah', label: "Cook at home", selected: true },
+          { name: 'inexpensiveRestaurant', img: 'blah', label: "Inexpensive restaurant", selected: false },
+          { name: 'midRangeRestaurant', img: 'blah', label: "Mid-range restaurant", selected: false },
+          { name: 'expensiveRestaurant', img: 'blah', label: "Expensive restaurant", selected: false }
         ]
       }
 
@@ -141,9 +145,9 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: 'bus',
         answers: [
-          { name: 'bus', img: 'blah', label: "Public bus" },
-          { name: 'car', img: 'blah2', label: "Car" },
-          { name: 'luxuryCar', img: 'blah3', label: "Luxury car" }
+          { name: 'publicTransportation', img: 'blah', label: "Public transportation", selected: true },
+          { name: 'midRangeCar', img: 'blah2', label: "Mid-range car", selected: false },
+          { name: 'luxuryCar', img: 'blah3', label: "Luxury car", selected: false }
         ]
       }
 
@@ -175,16 +179,26 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'hobby',
         type: 'checkbox',
-        value: '',
+        value: ['golf', 'hiking'],
         answers: [
-          { name: 'golf', img: 'blah1', label: "Golf" },
-          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck"},
-          { name: 'hiking', img: 'blah3', label: "Hiking" }
+          { name: 'golf', img: 'blah1', label: "Golf", selected: true },
+          { name: 'dancing', img: 'blah2', label: "Dancing", selected: false},
+          { name: 'fishing', img: 'blah3', label: "Fishing", selected: false },
+          { name: 'boating', img: 'blah3', label: "Boating", selected: true },
+          { name: 'gardening', img: 'blah3', label: "Gardening", selected: false }
         ]
       }
 
     ] // end of Page hobby
 
   }; // end of $rootScope.pages
+
+  $rootScope.summary = [
+    { name: 'housing', label: "Housing", price: 0 },
+    { name: 'food', label: "Food", price: 0 },
+    { name: 'transportation', label: "Transportation", price: 0 },
+    { name: 'travel', label: "Travel", price: 0 },
+    { name: 'hobby', label: "Hobby", price: 0 }
+  ];
 
 });
