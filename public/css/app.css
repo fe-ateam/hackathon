@@ -56,6 +56,11 @@ li {
   width: 150px;
   float:left;
 }
+
+.answerSelectionContainer {
+  display: inline-block;
+}
+
 .answerSelectionContainer:after {
     clear: both;
     content: "";
