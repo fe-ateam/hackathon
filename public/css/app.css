@@ -129,6 +129,9 @@ li {
 .page-summary .table tr.total td {
   font-size: 1.4em !important;
 }
+.page-summary .table tr.total td.total-amount {
+  padding-right: 1em;
+}
 .page-summary .table tr.total td.total-amount,
 .page-summary .table input[type="text"] {
   text-align: right;
