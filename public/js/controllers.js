@@ -35,21 +35,9 @@ angular.module('app')
   $scope.pageTitle = 'Where do you want to retire?';
   $scope.inputFields = $scope.pages.location;
 
-  // Populate cities dropdown
-  $scope.inputFields[0].answers = [];
-  $http.get('/cities').success(function(cities) {
-    console.log(cities);
-
-    angular.forEach(cities, function(city) {
-      $scope.inputFields[0].answers.push({
-        name: city.name,
-        label: city.name
-      });
-    });
-  });
-
   $scope.goNext = function() {
-    console.log($scope.inputFields[0].value);
+    var city = $scope.inputFields[0].value;
+    console.log(city.name);
   };
 })
 

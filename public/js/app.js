@@ -52,7 +52,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 })
 
 
-.run(function($rootScope) {
+.run(function($rootScope, $http) {
 
   $rootScope.pages = {
 
@@ -63,7 +63,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'cityState',
-        value: "San Jose, CA",
+        value: null,
         answers: [
         ]
       }
@@ -199,5 +199,17 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     { name: 'travel', label: "Travel", price: 0 },
     { name: 'hobby', label: "Hobby", price: 0 }
   ];
+
+
+  // Populate cities dropdown
+  $http.get('/cities').success(function(cities) {
+
+    angular.forEach(cities, function(city) {
+      $rootScope.pages.location[0].answers.push({
+        name: city.name,
+        label: city.name
+      });
+    });
+  });
 
 });
