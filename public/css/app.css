@@ -69,9 +69,6 @@ li {
 .page a {
   margin-top: 50px;
 }
-.page-summary.page a {
-  margin-top: 5px;
-}
 
 /* PAGES
 ============================================================================= */
@@ -86,6 +83,32 @@ li {
 .page-ages {
   background: #ffa6bb;
   color: #9e0000;
+}
+
+.page-location #cityState {
+  font-size: 30px;
+}
+
+.page-summary.page a {
+  margin-top: 5px;
+}
+.page-summary .panel-heading {
+  font-size: 1.5em !important;
+}
+.page-summary .table td {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+.page-summary .table td.category-name {
+  text-align: right;
+}
+.page-summary .table tr.total td {
+  font-size: 1.4em !important;
+}
+.page-summary .table tr.total td.total-amount {
+  text-align: right;
+}
+.page-summary .table input[type="text"] {
+  text-align: right;
 }
 
 /* ANIMATIONS
@@ -264,25 +287,6 @@ li {
 .input-group {
   width: 200px;
   float: right;
-}
-
-.page-summary .panel-heading {
-  font-size: 1.5em !important;
-}
-.page-summary .table td {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
-}
-.page-summary .table td.category-name {
-  text-align: right;
-}
-.page-summary .table tr.total td {
-  font-size: 1.4em !important;
-}
-.page-summary .table tr.total td.total-amount {
-  text-align: right;
-}
-.page-summary .table input[type="text"] {
-  text-align: right;
 }
 
 .answerSelection {
