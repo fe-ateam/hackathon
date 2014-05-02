@@ -29,7 +29,7 @@ angular.module('app')
 		,
 		template: '<label ng-repeat-start="answer in fieldInfo.answers" for="{{ fieldInfo.name }}">{{ answer.label }}</label>'
 					+ '<input ng-repeat-end name="{{ fieldInfo.name }}" value="{{ answer.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"'
-					+ ' ng-checked="answer.selected === true" ng-click="newValue(answer.name)"/>'
+					+ ' ng-checked="answer.selected" ng-click="newValue(answer.name)"/>'
 		,
 		link: function(scope, element, attrs) {
 
@@ -87,8 +87,8 @@ angular.module('app')
 		}
 		,
 		template: '<label for="{{ fieldInfo.name }}">{{ fieldInfo.label }}</label>'
-					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}" ng-model="fieldInfo.value" ng-change="newValue(value)">'
-					+ '	<option ng-repeat="answer in fieldInfo.answers" ng-selected="fieldInfo.value ===  answer.name" value="{{ answer.value }}" >{{ answer.label }}</option>'
+					+ '<select name="{{ fieldInfo.name }}" id="{{ fieldInfo.name }}" ng-model="fieldInfo.value" ng-options="answer.label for answer in fieldInfo.answers">'
+					+ '	<option value="" >Choose a city</option>'
 					+ '</select>'
 		,
 		link: function(scope, element, attrs) {
