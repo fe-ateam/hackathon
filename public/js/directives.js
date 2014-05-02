@@ -28,7 +28,7 @@ angular.module('app')
 		}
 		,
 		template:
-					'<div class="answerSelectionContainer"><div class="answerSelection" ng-repeat="answer in fieldInfo.answers" ><span class="{{ answer.icon }}"></span><br/>'
+					'<div class="answerSelectionContainer"><div class="answerSelection" ng-repeat="answer in fieldInfo.answers" ><span class="{{ answer.icon.css }}" style="background-image: url(\'{{ answer.icon.img }}\');"></span><br/>'
 					+ '<label for="{{ fieldInfo.name }}">{{ answer.label }}</label><br/>'
 					+ '<input name="{{ fieldInfo.name }}" value="{{ answer.name }}" id="{{ answer.name }}" type="{{ fieldInfo.type }}"'
 					+ ' ng-checked="answer.selected" ng-click="newValue(answer.name)"/></div></div>'

@@ -51,16 +51,14 @@ li {
   font-size: 40px;
   text-align: center;
 }
-
+/* Options buttons ------------ */
 .answerSelection {
   width: 150px;
   float:left;
 }
-
 .answerSelectionContainer {
   display: inline-block;
 }
-
 .answerSelectionContainer:after {
     clear: both;
     content: "";
@@ -69,8 +67,16 @@ li {
 .answerSelection span {
   width: 50px;
   font-size: 35px;
+  display: inline-block;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.answerSelection label {
+  height: 40px;
 }
 
+/* Page Styles ------------ */
 .page {
   position: absolute;
   top: 0;
@@ -88,6 +94,7 @@ li {
 .page a {
   margin-top: 50px;
 }
+
 
 /* PAGES
 ============================================================================= */
