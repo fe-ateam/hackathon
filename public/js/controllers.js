@@ -7,6 +7,18 @@ angular.module('app')
   $scope.isPageActive = function(name) {
     return $location.path().indexOf(name) > -1;
   };
+
+  $scope.getCommonUrlParams = function() {
+    var params = {
+      city: $scope.pages.location[0].value.name,
+      curAge: $scope.pages.ages[0].value,
+      retAge: $scope.pages.ages[1].value
+    };
+
+    $log.log(params);
+
+    return params;
+  };
 })
 
 
@@ -29,7 +41,6 @@ angular.module('app')
   $scope.goNext = function() {
     var city = $scope.inputFields[0].value;
     console.log(city.name);
-    // console.log($scope.pages.location[0].value.name);
   };
 })
 
@@ -59,17 +70,14 @@ angular.module('app')
   $scope.inputFields = $scope.pages.housing;
 
   $scope.goNext = function() {
-    var city = $scope.pages.location[0].value.name;
-    var curAge = $scope.pages.ages[0].value;
-    var retAge = $scope.pages.ages[1].value;
-    var housing = $scope.inputFields[0].value[0];
-    var url = '/housing/' + city + '/' + curAge + '/' + retAge + '/' + housing;
 
-    console.log(url);
+    var params = $scope.getCommonUrlParams();
+    params.housing = $scope.pages.housing[0].value[0];
+    var url = '/housing/' + params.city + '/' + params.curAge + '/' + params.retAge + '/' + params.housing;
+
+    $log.log(url);
 
     $http.get(url).success(function(price) {
-      console.log(price);
-
       $scope.saveToSummary('housing', price);
     });
 
@@ -84,6 +92,20 @@ angular.module('app')
   $scope.pageClass = 'page-food';
   $scope.pageTitle = "What restaurant would you usually go?";
   $scope.inputFields = $scope.pages.food;
+
+  $scope.goNext = function() {
+
+    var params = $scope.getCommonUrlParams();
+    params.food = $scope.pages.food[0].value;
+    var url = '/food/' + params.city + '/' + params.curAge + '/' + params.retAge + '/' + params.food;
+
+    $log.log(url);
+
+    $http.get(url).success(function(price) {
+      $scope.saveToSummary('food', price);
+    });
+
+  };
 })
 
 
@@ -94,6 +116,20 @@ angular.module('app')
   $scope.pageClass = 'page-transportation';
   $scope.pageTitle = "How would you like to move from point A to B?";
   $scope.inputFields = $scope.pages.transportation;
+
+  $scope.goNext = function() {
+
+    var params = $scope.getCommonUrlParams();
+    params.transportation = $scope.pages.transportation[0].value;
+    var url = '/transportation/' + params.city + '/' + params.curAge + '/' + params.retAge + '/' + params.transportation;
+
+    $log.log(url);
+
+    $http.get(url).success(function(price) {
+      $scope.saveToSummary('transportation', price);
+    });
+
+  };
 })
 
 
@@ -104,6 +140,20 @@ angular.module('app')
   $scope.pageClass = 'page-travel';
   $scope.pageTitle = "How often do you travel every year?";
   $scope.inputFields = $scope.pages.travel;
+
+  $scope.goNext = function() {
+
+    var params = $scope.getCommonUrlParams();
+    params.travel = $scope.pages.travel[0].value;
+    var url = '/travel/' + params.city + '/' + params.curAge + '/' + params.retAge + '/' + params.travel;
+
+    $log.log(url);
+
+    $http.get(url).success(function(price) {
+      $scope.saveToSummary('travel', price);
+    });
+
+  };
 })
 
 
@@ -114,6 +164,42 @@ angular.module('app')
   $scope.pageClass = 'page-hobby';
   $scope.pageTitle = "What hobbies would you like to have?";
   $scope.inputFields = $scope.pages.hobby;
+
+  $scope.goNext = function() {
+
+    var params = $scope.getCommonUrlParams();
+    var hobbies = $scope.pages.hobby[0].value;
+
+    var selectedHobbies = ['f', 'f', 'f', 'f', 'f'];
+    angular.forEach(hobbies, function(hobby) {
+      // Order: golf, dancing, fishing, boating, gardening
+      if (hobby === 'golf') {
+        selectedHobbies[0] = 't';
+      }
+      else if (hobby === 'dancing') {
+        selectedHobbies[1] = 't';
+      }
+      else if (hobby === 'fishing') {
+        selectedHobbies[2] = 't';
+      }
+      else if (hobby === 'boating') {
+        selectedHobbies[3] = 't';
+      }
+      else if (hobby === 'gardening') {
+        selectedHobbies[4] = 't';
+      }
+    });
+    params.hobby = selectedHobbies.join('');
+
+    var url = '/hobby/' + params.city + '/' + params.curAge + '/' + params.retAge + '/' + params.hobby;
+
+    $log.log(url);
+
+    // $http.get(url).success(function(price) {
+    //   $scope.saveToSummary('hobby', price);
+    // });
+
+  };
 })
 
 

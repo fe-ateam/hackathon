@@ -123,7 +123,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'food',
         type: 'radio',
-        value: 'midRangeFood',
+        value: 'midRangeRestaurant',
         answers: [
           { name: 'cookAtHome', img: 'blah', label: "Cook at home", selected: true },
           { name: 'inexpensiveRestaurant', img: 'blah', label: "Inexpensive restaurant", selected: false },
@@ -192,6 +192,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
   }; // end of $rootScope.pages
 
+
   $rootScope.summary = [
     { name: 'housing', label: "Housing", price: 0 },
     { name: 'food', label: "Food", price: 0 },
@@ -199,6 +200,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     { name: 'travel', label: "Travel", price: 0 },
     { name: 'hobby', label: "Hobby", price: 0 }
   ];
+
 
   $rootScope.saveToSummary = function(name, price) {
 
