@@ -7,59 +7,26 @@ exports.getCities = function(req, res) {
 };
 
 exports.getCityById = function(req, res) {
-  City.findOne({ _id: req.params.id }).exec(function(err, city) {
+  City.findOne({ name: req.params.name }).exec(function(err, city) {
     res.send(city);
   });
 };
 
-// exports.getHousingPriceSelection = function(req, res) {
-// 	var cityId = req.params.id;
-// 	var answerId = req.params.selection;
+function _calculateInflationPrice(price, currAge, retAge)
+{	
+	if(currAge > retAge)
+	{
+		return "Current Age Cannot Be Greater Than Retirement Age";
+	}
 
-// 	var categoryName = "Rent Per Month";
-// 	var itemNameSel1 = "Apartment (1 bedroom) in City Centre";
-// 	var itemNameSel2 = "Apartment (1 bedroom) Outside of Centre";
-
-// 	City.findOne({_id: cityId}).exec(function(err, city) {
-
-// 		var categories = city.categories;
-// 		var items = null;
-
-// 		for(var category in categories){
-// 			if(categoryName == categories[category].name){
-// 				items = categories[category].items;
-// 			}
-// 		}
-
-// 		if(items == null){
-// 			res.send("404 Not Found");
-// 		}
-
-// 	  	if(answerId === '1'){
-// 			for(var item in items){
-// 				var itemPair = items[item];
-// 				if(typeof itemPair.name != 'undefined' 
-// 					&& typeof itemPair.price != 'undefined'
-// 					&& itemPair.name == itemNameSel1){
-// 					res.send(itemPair.price);
-// 				}
-// 			}
-// 		}
-// 		if(answerId === '2'){
-// 			for(var item in items){
-// 				var itemPair = items[item];
-// 				if(typeof itemPair.name != 'undefined' 
-// 					&& typeof itemPair.price != 'undefined'
-// 					&& itemPair.name == itemNameSel2){
-// 					res.send(itemPair.price);
-// 				}
-// 			}
-// 		}
-// 	});
-// };
+	var yearsInTheFuture = retAge - currAge;
+	var INFLATION_RATE = 0.02;
+	var inflation_in_future = Math.pow(1+INFLATION_RATE, yearsInTheFuture);
+	return Math.ceil((price*inflation_in_future*10)/10);
+};
 
 function _findItemsByCityAndCat(cityId, categoryName, cb) {
-	City.findOne({_id: cityId}).exec(function(err, city) {
+	City.findOne({name: cityId}).exec(function(err, city) {
 
 		var categories = city.categories;
 
@@ -95,8 +62,10 @@ function _findPrice(items, itemName) {
 }
 
 exports.getHousingMonthlyAmount = function(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.name;
 	var answerId = req.params.answerName;
+    var currAge = req.params.ca;
+    var retAge = req.params.ra;	
 
 	var price = null;
 
@@ -117,6 +86,9 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			price = _findPrice(items, itemNameSel2);
 		}
 
+		if (price != null){
+			res.send("" + _calculateInflationPrice(price, currAge, retAge));
+		}
 	});
 
 	categoryName = "Buy Apartment Price";
@@ -129,22 +101,25 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			res.send("404 Not Found");
 		}
 
+		//computed for 30 years to pay houses
 	  	if(answerId === 'buyInCityCentre'){
-	  		price = _findPrice(items, itemNameSel3) * 200;
+	  		price = _findPrice(items, itemNameSel3) * 200 / 360;
 		}
 		if(answerId === 'buyOutsideCentre'){
-			price = _findPrice(items, itemNameSel4) * 200;
+			price = _findPrice(items, itemNameSel4) * 200 / 360;
+		}
+		if (price != null){
+			res.send("" + _calculateInflationPrice(price, currAge, retAge));
 		}
 	});
 
-	if (price != null){
-		res.send("" + price);
-	}
 };
 
 exports.getTransportationMonthlyAmount = function(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.name;
 	var answerId = req.params.answerName;
+    var currAge = req.params.ca;
+    var retAge = req.params.ra;	
 
 	var price = null;
 
@@ -176,28 +151,33 @@ exports.getTransportationMonthlyAmount = function(req, res) {
 		}
 
 		if (price != null) {
-			res.send("" + price);
+			res.send("" + _calculateInflationPrice(price, currAge, retAge));
 		}
 
 	});
 };
 
 exports.getTravelMonthlyAmount = function(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.name;
 	var answerId = req.params.answerName;
+    var currAge = req.params.ca;
+    var retAge = req.params.ra;	
 
 	var price = 3000 * parseInt(answerId);
 
 	if (price != null) {
 		//compute monthly
 		price = price / 12;
-		res.send("" + price);
+		res.send("" + _calculateInflationPrice(price, currAge, retAge));
 	}
 
 };
 exports.getHobbyMonthlyAmount = function(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.name;
 	var answerId = req.params.answerName;
+    var currAge = req.params.ca;
+    var retAge = req.params.ra;	
+
 	var price = 0;
 
    
@@ -220,13 +200,15 @@ exports.getHobbyMonthlyAmount = function(req, res) {
 	}
 
 	if (price != null) {
-		res.send("" + price);
+		res.send("" + _calculateInflationPrice(price, currAge, retAge));
 	}
 };
 
 exports.getFoodMonthlyAmount = function(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.name;
 	var answerId = req.params.answerName;
+    var currAge = req.params.ca;
+    var retAge = req.params.ra;	
 
 	var price = null;
 
@@ -241,21 +223,21 @@ exports.getFoodMonthlyAmount = function(req, res) {
 			res.send("404 Not Found");
 		}
 
-		//computed monthly 2 meals a day for 15 days = 30
+		//computed monthly 2 meals a day for 22 days = 44
 	  	if(answerId === 'cookAtHome'){
-	  		price = _findPrice(items, itemNameSel1) * 30;
+	  		price = _findPrice(items, itemNameSel1) * 44;
 		}
 		if(answerId === 'inexpensiveRestaurant'){
-			price = _findPrice(items, itemNameSel2) * 30;
+			price = _findPrice(items, itemNameSel2) * 44;
 		}
 	  	if(answerId === 'midRangeRestaurant'){
-	  		price = _findPrice(items, itemNameSel3) * 30;
+	  		price = _findPrice(items, itemNameSel3) * 44;
 		}
 		if(answerId === 'expensiveRestaurant'){
-			price = _findPrice(items, itemNameSel3) * 2 * 30;
+			price = _findPrice(items, itemNameSel3) * 2 * 44;
 		}
   		if (price != null) {
-  			res.send("" + price);
+  			res.send("" + _calculateInflationPrice(price, currAge, retAge));
   		}
 	});
 };
