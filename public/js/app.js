@@ -152,9 +152,9 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'radio',
         value: ['midRangeCar'],
         answers: [
-          { name: 'publicTransportation', icon: {css: 'ci ci-bus', img: 'img/icons/inexpensive-SM.png'}, label: "Public transportation", selected: true },
-          { name: 'midRangeCar', icon: {css:'ci ci-car', img: 'img/icons/inexpensive-SM.png'}, label: "Mid-range car", selected: false },
-          { name: 'luxuryCar', icon: {css:'ci ci-sports-car', img: 'img/icons/inexpensive-SM.png'}, label: "Luxury car", selected: false }
+          { name: 'publicTransportation', icon: {css: 'ci ci-bus', img: 'img/icons/transportation-SM.png'}, label: "Public transportation", selected: true },
+          { name: 'midRangeCar', icon: {css:'ci ci-car', img: 'img/icons/car-SM.png'}, label: "Mid-range car", selected: false },
+          { name: 'luxuryCar', icon: {css:'ci ci-sports-car', img: 'img/icons/sports-car-SM.png'}, label: "Luxury car", selected: false }
         ]
       }
 
@@ -188,11 +188,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'checkbox',
         value: ['golf', 'boating'],
         answers: [
-          { name: 'golf', icon: {css:'ci ci-golf', img: 'img/icons/inexpensive-SM.png'}, label: "Golf", selected: true },
+          { name: 'golf', icon: {css:'ci ci-golf', img: 'img/icons/golf-SM.png'}, label: "Golf", selected: true },
           { name: 'dancing', icon: {css:'glyphicon glyphicon-music', img: ''}, label: "Dancing", selected: false},
-          { name: 'fishing', icon: {css:'ci ci-fishing', img: 'img/icons/inexpensive-SM.png'}, label: "Fishing", selected: false },
-          { name: 'boating', icon: {css:'ci ci-boating', img: 'img/icons/inexpensive-SM.png'}, label: "Boating", selected: true },
-          { name: 'gardening', icon: {css:'ci ci-gardening', img: 'img/icons/inexpensive-SM.png'}, label: "Gardening", selected: false }
+          { name: 'fishing', icon: {css:'ci ci-fishing', img: 'img/icons/fishing-SM.png'}, label: "Fishing", selected: false },
+          { name: 'boating', icon: {css:'ci ci-boating', img: 'img/icons/boating-SM.png'}, label: "Boating", selected: true },
+          { name: 'gardening', icon: {css:'ci ci-gardening', img: 'img/icons/gardening-SM.png'}, label: "Gardening", selected: false }
         ]
       }
     ] // end of Page hobby

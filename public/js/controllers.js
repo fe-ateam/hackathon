@@ -290,6 +290,6 @@ angular.module('app')
   $log.log('learnController');
 
   $scope.pageClass = 'page-learn';
-  $scope.pageTitle = "How can you afford such expanse?";
+  $scope.pageTitle = "How can you afford such expense?";
 
 });

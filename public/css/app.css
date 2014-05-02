@@ -75,6 +75,9 @@ li {
 .answerSelection label {
   height: 40px;
 }
+.glyphicon, .fa {
+  color: black;
+}
 
 /* Page Styles ------------ */
 .page {
