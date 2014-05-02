@@ -73,45 +73,50 @@ exports.getHousingMonthlyAmount = function(req, res) {
 	var itemNameSel1 = "Apartment (3 bedrooms) in City Centre";
 	var itemNameSel2 = "Apartment (3 bedrooms) Outside of Centre";
 
-	_findItemsByCityAndCat(cityId, categoryName, function(items) {
+	if (price === null)
+		_findItemsByCityAndCat(cityId, categoryName, function(items) {
+			console.log("in _findItemsByCityAndCat 1");
+			if(items == null){
+				res.send("404 Not Found");
+			}
 
-		if(items == null){
-			res.send("404 Not Found");
-		}
+		  	if(answerId === 'rentInCentre'){
+		  		price = _findPrice(items, itemNameSel1);
+			}
+			if(answerId === 'rentOutsideCentre'){
+				price = _findPrice(items, itemNameSel2);
+			}
 
-	  	if(answerId === 'rentInCentre'){
-	  		price = _findPrice(items, itemNameSel1);
-		}
-		if(answerId === 'rentOutsideCentre'){
-			price = _findPrice(items, itemNameSel2);
-		}
-
-		if (price != null){
-			res.send("" + _calculateInflationPrice(price, currAge, retAge));
-		}
-	});
+			if (price != null){
+				res.send("" + _calculateInflationPrice(price, currAge, retAge));
+			}
+			console.log("end _findItemsByCityAndCat 1");
+		});
 
 	categoryName = "Buy Apartment Price";
 	var itemNameSel3 = "Price per Square Meter to Buy Apartment in City Centre";
 	var itemNameSel4 = "Price per Square Meter to Buy Apartment Outside of Centre";
 
-	_findItemsByCityAndCat(cityId, categoryName, function(items) {
+	if (price === null)
+		_findItemsByCityAndCat(cityId, categoryName, function(items) {
+			console.log("in _findItemsByCityAndCat 2");
+			if(items == null){
+				console.log("items null");
+				res.send("404 Not Found");
+			}
 
-		if(items == null){
-			res.send("404 Not Found");
-		}
-
-		//computed for 30 years to pay houses
-	  	if(answerId === 'buyInCentre'){
-	  		price = _findPrice(items, itemNameSel3) * 200 / 120;
-		}
-		if(answerId === 'buyOutsideCentre'){
-			price = _findPrice(items, itemNameSel4) * 200 / 120;
-		}
-		if (price != null){
-			res.send("" + _calculateInflationPrice(price, currAge, retAge));
-		}
-	});
+			//computed for 30 years to pay houses
+		  	if(answerId === 'buyInCentre'){
+		  		price = _findPrice(items, itemNameSel3) * 200 / 120;
+			}
+			if(answerId === 'buyOutsideCentre'){
+				price = _findPrice(items, itemNameSel4) * 200 / 120;
+			}
+			if (price != null){
+				res.send("" + _calculateInflationPrice(price, currAge, retAge));
+			}
+			console.log("end _findItemsByCityAndCat 2");
+		});
 
 };
 
