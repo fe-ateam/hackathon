@@ -174,31 +174,38 @@ exports.getTravelMonthlyAmount = function(req, res) {
 };
 exports.getHobbyMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
-	var answerId = req.params.answerName;
     var currAge = req.params.ca;
     var retAge = req.params.ra;	
+    var answer= req.params.answerName;
+    console.log(answer);
 
 	var price = 0;
 
-   
-	for(var i = 0; i < answerId.length; i++){
-	  	if(answerId[i] === 'golf'){
-	  		price = price + 500;
-		}
-	  	if(answerId[i] === 'dancing'){
-	  		price = price + 200;
-		}
-	  	if(answerId[i] === 'fishing'){
-	  		price = price + 300;
-		}
-	  	if(answerId[i] === 'boating'){
-	  		price = price + 300;
-		}
-	  	if(answerId[i] === 'gardening'){
-	  		price = price + 200;
-		}
+	if(answer[0] == 't')
+	{
+		price += 500;
+		console.log('golf');
 	}
-
+   	if(answer[1] == 't')
+	{
+		price += 200;
+		console.log('dancing');
+	}
+	if( answer[2] == 't')
+	{
+		price += 300;
+		console.log('fishing');
+	}
+	if(answer[3] == 't')
+	{
+		price += 300;
+		console.log('boating');
+	}
+	if(answer[4] == 't')
+	{
+		price += 200;
+		console.log('gardening');
+	}
 	if (price != null) {
 		res.send("" + _calculateInflationPrice(price, currAge, retAge));
 	}
