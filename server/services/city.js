@@ -13,6 +13,52 @@ exports.getCityById = function(req, res) {
 };
 
 exports.getHousingPriceSelection = function(req, res) {
+	var cityId = req.params.id;
+	var answerId = req.params.selection;
+
+	var categoryName = "Rent Per Month";
+	var itemNameSel1 = "Apartment (1 bedroom) in City Centre";
+	var itemNameSel2 = "Apartment (1 bedroom) Outside of Centre";
+
+	City.findOne({_id: cityId}).exec(function(err, city) {
+
+		var categories = city.categories;
+		var categoryItems = null;
+
+		for(var category in categories){
+			if(categoryName == categories[category].name){
+				categoryItems = categories[category].items;
+			}
+		}
+
+		if(categoryItems == null){
+			res.send("404 Not Found");
+		}
+
+	  	if(answerId === '1'){
+			for(var item in categoryItems){
+				var itemPair = categoryItems[item];
+				if(typeof itemPair.name != 'undefined' 
+					&& typeof itemPair.price != 'undefined'
+					&& itemPair.name == itemNameSel1){
+					res.send(itemPair.price);
+				}
+			}
+		}
+		if(answerId === '2'){
+			for(var item in categoryItems){
+				var itemPair = categoryItems[item];
+				if(typeof itemPair.name != 'undefined' 
+					&& typeof itemPair.price != 'undefined'
+					&& itemPair.name == itemNameSel2){
+					res.send(itemPair.price);
+				}
+			}
+		}
+	});
+};
+
+exports.getHousingPriceSelection2 = function(req, res) {
   City.findOne({ _id: req.params.id }).exec(function(err, city) {
 	var housingPrice = "0";
 	var selection = req.params.selection;
@@ -21,20 +67,14 @@ exports.getHousingPriceSelection = function(req, res) {
   	if(selection === '1'){
   		console.log('selection 1');
   		var cats = city.categories;
-  		console.log("cats length=" + cats.length);
   		for (var i = 0; i < cats.length; i++){
-  			console.log("cats" + i + "==" + cats[i].name);
   			if(cats[i].name === "Rent Per Month") {
-  				console.log("HERE!!!");
   				catindex = i;
   			}
   		}
   		var items = city.categories[catindex].items;
-  		console.log("items length=" + items.length);
   		for (var i = 0; i < items.length; i++){
-  			console.log("items" + i + "==" + items[i].name);
   			if(items[i].name === "Apartment (1 bedroom) in City Centre"){
-  				console.log("HERE2!!!");
   				housingPrice = items[i].price;
   			}
 		}
