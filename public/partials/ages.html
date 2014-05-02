@@ -1,11 +1,13 @@
 <h1>{{ pageTitle }}</h1>
-<form name="agesForm">
+<form name="agesForm" id="ages-form">
 <div ng-repeat="inputField in inputFields" />
 	<div input-fields
-		field-info="inputField">
+		field-info="inputField" class="input-fields">
 	</div>
 </div>
 </form>
 
-<a href="#location" ng-click="goBack()" class="btn btn-primary btn-lg">Back</a>
-<a href="#housing" ng-click="goNext()" class="btn btn-success btn-lg">Save &amp; continue</a>
+<div id="button-row">
+  <a href="#location" ng-click="goBack()" class="btn btn-primary btn-lg">Back</a>
+  <a href="#housing" ng-click="goNext()" class="btn btn-success btn-lg">Save &amp; continue</a>
+</div>
