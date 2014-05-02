@@ -101,7 +101,7 @@ li {
 }
 
 .page-summary .panel {
-  width: 500px;
+  width: 750px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -111,16 +111,20 @@ li {
 .page-summary .panel-heading {
   font-size: 1.5em !important;
 }
+.page-summary .table {
+  margin: 0;
+}
 .page-summary .table td {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }
 .page-summary .table td.category-name {
   text-align: right;
-  width: 250px;
   font-size: 1.2em;
+  vertical-align: middle;
 }
-.page-summary .table td.input-group {
-  width: 250px;
+.page-summary .table td.input-group,
+.page-summary .table tr.total td {
+  width: 200px;
 }
 .page-summary .table tr.total td {
   font-size: 1.4em !important;
@@ -128,6 +132,15 @@ li {
 .page-summary .table tr.total td.total-amount,
 .page-summary .table input[type="text"] {
   text-align: right;
+}
+.page-summary .table tr:first-child td {
+  border-top: 0 none;
+}
+.page-summary .table td.category-name .legend {
+  display: inline-block;
+  float: left;
+  width: 20px;
+  height: 20px;
 }
 
 /* ANIMATIONS

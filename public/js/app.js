@@ -54,6 +54,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 
 .run(function($rootScope, $log, $http) {
 
+  $rootScope.pageColors = ['#5f9ae8', '#f77d7b', '#ab94ce', '#f7a559', '#76c976'];
+
   $rootScope.pages = {
 
     // Page location

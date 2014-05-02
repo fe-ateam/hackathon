@@ -1,25 +1,38 @@
 <h1>Summary</h1>
 
-<div class="panel panel-default">
+<div class="panel panel-default container-fluid">
 
-  <table class="table">
-  	<tbody>
-  		<tr ng-repeat= "category in summary">
-  			<td class="category-name">{{ category.label }}</td>
+  <div class="row">
 
-  			<td class="input-group input-group-sm">
-  			  <span class="input-group-addon">$</span>
-  			  <input type="text" class="form-control" ng-model="category.price">
-  			  <span class="input-group-addon">.00</span>
-  			</td>
-  		</tr>
+    <div class="col-md-7">
+      <table class="table">
+      	<tbody>
+      		<tr ng-repeat= "category in summary">
+      			<td class="category-name">
+              <div class="legend" style="background: {{ pageColors[$index] }}"></div>
+              {{ category.label }}
+            </td>
 
-  		<tr class="total">
-  			<td class="category-name">Total Amount:</td>
-  			<td class="total-amount">$ {{ total() }}.00</td>
-  		</tr>
-  	</tbody>
-  </table>
+      			<td class="input-group input-group-sm">
+      			  <span class="input-group-addon">$</span>
+      			  <input type="text" class="form-control" numbers-only
+                min="0" max="999999" ng-model="category.price" ng-change="change()">
+      			  <span class="input-group-addon">.00</span>
+      			</td>
+      		</tr>
+
+      		<tr class="total">
+      			<td class="category-name">Total Amount:</td>
+      			<td class="total-amount">$ {{ total() }}.00</td>
+      		</tr>
+      	</tbody>
+      </table>
+    </div>
+
+    <div id="ring-chart" class="col-md-5"></div>
+
+  </div>
+
 </div>
 
 
