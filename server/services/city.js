@@ -73,9 +73,11 @@ exports.getHousingMonthlyAmount = function(req, res) {
 	var itemNameSel1 = "Apartment (3 bedrooms) in City Centre";
 	var itemNameSel2 = "Apartment (3 bedrooms) Outside of Centre";
 
-	if (price === null)
-		_findItemsByCityAndCat(cityId, categoryName, function(items) {
+	_findItemsByCityAndCat(cityId, categoryName, function(items) {
+		if (price === null)
+		{
 			if(items == null){
+				console.log("items null");
 				res.send("404 Not Found");
 			}
 
@@ -89,14 +91,16 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			if (price != null){
 				res.send("" + _calculateInflationPrice(price, currAge, retAge));
 			}
-		});
+		}
+	});
 
 	categoryName = "Buy Apartment Price";
 	var itemNameSel3 = "Price per Square Meter to Buy Apartment in City Centre";
 	var itemNameSel4 = "Price per Square Meter to Buy Apartment Outside of Centre";
 
-	if (price === null)
-		_findItemsByCityAndCat(cityId, categoryName, function(items) {
+	_findItemsByCityAndCat(cityId, categoryName, function(items) {
+		if (price === null)
+		{
 			if(items == null){
 				console.log("items null");
 				res.send("404 Not Found");
@@ -112,7 +116,8 @@ exports.getHousingMonthlyAmount = function(req, res) {
 			if (price != null){
 				res.send("" + _calculateInflationPrice(price, currAge, retAge));
 			}
-		});
+		}
+	});
 
 };
 
