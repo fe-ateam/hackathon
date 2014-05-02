@@ -13,7 +13,7 @@ exports.getCityById = function(req, res) {
 };
 
 function _calculateInflationPrice(price, currAge, retAge)
-{	
+{
 	if(currAge > retAge)
 	{
 		return "Current Age Cannot Be Greater Than Retirement Age";
@@ -46,7 +46,7 @@ function _findPrice(items, itemName) {
 
 		var item = items[i];
 
-		if (typeof item.name != 'undefined' 
+		if (typeof item.name != 'undefined'
 			&& typeof item.price != 'undefined'
 			&& item.name == itemName) {
 
@@ -65,7 +65,7 @@ exports.getHousingMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
 	var answerId = req.params.answerName;
     var currAge = req.params.ca;
-    var retAge = req.params.ra;	
+    var retAge = req.params.ra;
 
 	var price = null;
 
@@ -102,11 +102,11 @@ exports.getHousingMonthlyAmount = function(req, res) {
 		}
 
 		//computed for 30 years to pay houses
-	  	if(answerId === 'buyInCityCentre'){
-	  		price = _findPrice(items, itemNameSel3) * 200 / 360;
+	  	if(answerId === 'buyInCentre'){
+	  		price = _findPrice(items, itemNameSel3) * 200 / 120;
 		}
 		if(answerId === 'buyOutsideCentre'){
-			price = _findPrice(items, itemNameSel4) * 200 / 360;
+			price = _findPrice(items, itemNameSel4) * 200 / 120;
 		}
 		if (price != null){
 			res.send("" + _calculateInflationPrice(price, currAge, retAge));
@@ -119,7 +119,7 @@ exports.getTransportationMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
 	var answerId = req.params.answerName;
     var currAge = req.params.ca;
-    var retAge = req.params.ra;	
+    var retAge = req.params.ra;
 
 	var price = null;
 
@@ -137,7 +137,7 @@ exports.getTransportationMonthlyAmount = function(req, res) {
 	  		price = _findPrice(items, itemNameSel1);
 			console.log('***' + price);
 		}
-	  	
+
 		if (answerId === 'midRangeCar'){
 	  		price = _findPrice(items, itemNameSel2);
 			//compute monthly
@@ -161,7 +161,7 @@ exports.getTravelMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
 	var answerId = req.params.answerName;
     var currAge = req.params.ca;
-    var retAge = req.params.ra;	
+    var retAge = req.params.ra;
 
 	var price = 3000 * parseInt(answerId);
 
@@ -175,7 +175,7 @@ exports.getTravelMonthlyAmount = function(req, res) {
 exports.getHobbyMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
     var currAge = req.params.ca;
-    var retAge = req.params.ra;	
+    var retAge = req.params.ra;
     var answer= req.params.answerName;
     console.log(answer);
 
@@ -215,7 +215,7 @@ exports.getFoodMonthlyAmount = function(req, res) {
 	var cityId = req.params.name;
 	var answerId = req.params.answerName;
     var currAge = req.params.ca;
-    var retAge = req.params.ra;	
+    var retAge = req.params.ra;
 
 	var price = null;
 
