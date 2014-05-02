@@ -65,8 +65,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         name: 'cityState',
         value: "blah2",
         answers: [
-          { name: "blah", img: "blah", label: "San Jose, CA" },
-          { name: "blah2", img: "blah2", label: "San Francisco, CA" }
         ]
       }
 

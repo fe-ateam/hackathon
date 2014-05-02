@@ -7,6 +7,15 @@ angular.module('app')
   $scope.isPageActive = function(name) {
     return $location.path().indexOf(name) > -1;
   };
+
+  $scope.saveToSummary = function(name, price) {
+    for (var category in $scope.summary) {
+      if (category.name === name) {
+        category.price = price;
+        break;
+      }
+    }
+  };
 })
 
 
@@ -25,6 +34,19 @@ angular.module('app')
   $scope.pageClass = 'page-location';
   $scope.pageTitle = 'Where do you want to retire?';
   $scope.inputFields = $scope.pages.location;
+
+  // Populate cities dropdown
+  $scope.inputFields[0].answers = [];
+  $http.get('/cities').success(function(cities) {
+    console.log(cities);
+
+    angular.forEach(cities, function(city) {
+      $scope.inputFields[0].answers.push({
+        name: city.name,
+        label: city.name
+      });
+    });
+  });
 
   $scope.goNext = function() {
     console.log($scope.inputFields[0].value);
