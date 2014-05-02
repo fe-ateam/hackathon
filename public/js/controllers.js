@@ -50,6 +50,7 @@ angular.module('app')
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
+  $scope.pageTitle = "Your ages";
   $scope.inputFields = $scope.pages.ages;
 
   $scope.goNext = function() {
@@ -281,5 +282,14 @@ angular.module('app')
 
 
   }, 500); // end of $timeout
+
+})
+
+// Learn
+.controller('learnController', function($scope, $log, $http) {
+  $log.log('learnController');
+
+  $scope.pageClass = 'page-learn';
+  $scope.pageTitle = "How can you afford such expanse?";
 
 });

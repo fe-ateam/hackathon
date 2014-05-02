@@ -48,6 +48,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
     .when('/summary', {
       templateUrl: 'partials/summary.html',
       controller: 'summaryController'
+    })
+
+    .when('/learn', {
+      templateUrl: 'partials/learn.html',
+      controller: 'learnController'
     });
 })
 

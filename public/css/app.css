@@ -95,6 +95,7 @@ li {
 .page-travel         { background: #f7a559; color: #8e592a; }
 .page-hobby          { background: #76c976; color: #1d661d; }
 .page-summary        { background: #50c8d3; color: #0d7882; }
+.page-learn          { background: #74d37c; color: #237f2b; }
 
 .page-location #cityState {
   font-size: 30px;
@@ -144,6 +145,10 @@ li {
   float: left;
   width: 20px;
   height: 20px;
+}
+
+.page-learn p {
+  font-size: 20px;
 }
 
 /* ANIMATIONS
@@ -257,6 +262,31 @@ li {
   -moz-animation: slideInUp 0.5s both ease-in;
   animation: slideInUp 0.5s both ease-in;
 }
+
+/* summary */
+.page-summary.ng-leave {
+  -webkit-animation: slideOutDown 0.5s both ease-in;
+  -moz-animation: slideOutDown 0.5s both ease-in;
+  animation: slideOutDown 0.5s both ease-in;
+}
+.page-summary.ng-enter {
+  -webkit-animation: slideInUp 0.5s both ease-in;
+  -moz-animation: slideInUp 0.5s both ease-in;
+  animation: slideInUp 0.5s both ease-in;
+}
+
+/* learn */
+.page-learn.ng-leave {
+  -webkit-animation: slideOutLeft 0.5s both ease-in;
+  -moz-animation: slideOutLeft 0.5s both ease-in;
+  animation: slideOutLeft 0.5s both ease-in;
+}
+.page-learn.ng-enter {
+  -webkit-animation: slideInLeft 0.5s both ease-in;
+  -moz-animation: slideInLeft 0.5s both ease-in;
+  animation: slideInLeft 0.5s both ease-in;
+}
+
 
 /* Animation keyframes  ------------------------- */
 
