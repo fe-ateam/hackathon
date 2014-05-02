@@ -52,7 +52,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 })
 
 
-.run(function($rootScope) {
+.run(function($rootScope, $log, $http) {
 
   $rootScope.pages = {
 
@@ -63,10 +63,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'cityState',
-        value: "blah2",
+        value: null,
         answers: [
-          { name: "blah", img: "blah", label: "San Jose, CA" },
-          { name: "blah2", img: "blah2", label: "San Francisco, CA" }
         ]
       }
 
@@ -78,6 +76,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - current age
       {
         name: 'currentAge',
+        label: 'What is your current age?',
         value: '55',
         type: 'text',
         validation: 'numbers-only',
@@ -88,7 +87,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - retirement age
       {
         name: 'retirementAge',
-        value: '65',
+        label: 'What age would you like to retire at?',
+        value: '65',
         type: 'text',
         validation: 'numbers-only',
         min: 18,
@@ -103,11 +103,13 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - housing
       {
         name: 'housingType',
-        value: "midRangeHome",
+        value: ['rentInCentre'],
         type: "radio",
         answers: [
-          { name: "midRangeHome", img: "blah", label: "Mid Range Home" },
-          { name: "luxuryHome", img: "blah2", label: "Luxury Home" }
+          { name: "rentInCentre", icon: "fa fa-building-o", label: "Rent in city centre", selected: true },
+          { name: "rentOutsideCentre", icon: "fa fa-home", label: "Rent outside of centre", selected: false },
+          { name: "buyInCentre", icon: "fa fa-building-o", label: "Buy in city centre", selected: false },
+          { name: "buyOutsideCentre", icon: "fa fa-home", label: "Buy outside of centre", selected: false }
         ]
       }
     ], // end of page housing
@@ -121,10 +123,12 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'food',
         type: 'radio',
-        value: 'midRangeFood',
+        value: ['midRangeRestaurant'],
         answers: [
-          { name: 'midRangeFood', img: 'blah', label: "Mid range restaurant" },
-          { name: 'luxuryFood', img: 'blah', label: "Luxury restaurant" }
+          { name: 'cookAtHome', icon: 'glyphicon glyphicon-cutlery', label: "Cook at home", selected: true },
+          { name: 'inexpensiveRestaurant', icon: 'ci ci-dollar',  label: "Inexpensive restaurant", selected: false },
+          { name: 'midRangeRestaurant', icon: 'ci ci-two-dollar', label: "Mid-range restaurant", selected: false },
+          { name: 'expensiveRestaurant', icon: 'ci ci-three-dollar', label: "Expensive restaurant", selected: false }
         ]
       }
 
@@ -139,11 +143,11 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'transportation',
         type: 'radio',
-        value: 'bus',
+        value: ['midRangeCar'],
         answers: [
-          { name: 'bus', img: 'blah', label: "Public bus" },
-          { name: 'car', img: 'blah2', label: "Car" },
-          { name: 'luxuryCar', img: 'blah3', label: "Luxury car" }
+          { name: 'publicTransportation', icon: 'ci ci-bus', label: "Public transportation", selected: true },
+          { name: 'midRangeCar', icon: 'ci ci-car', label: "Mid-range car", selected: false },
+          { name: 'luxuryCar', icon: 'ci ci-sports-car', label: "Luxury car", selected: false }
         ]
       }
 
@@ -175,16 +179,50 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'hobby',
         type: 'checkbox',
-        value: '',
+        value: ['golf', 'boating'],
         answers: [
-          { name: 'golf', img: 'blah1', label: "Golf" },
-          { name: 'gettingDrunck', img: 'blah2', label: "Getting drunck"},
-          { name: 'hiking', img: 'blah3', label: "Hiking" }
+          { name: 'golf', icon: 'ci ci-golf', label: "Golf", selected: true },
+          { name: 'dancing', icon: 'glyphicon glyphicon-music', label: "Dancing", selected: false},
+          { name: 'fishing', icon: 'ci ci-fishing', label: "Fishing", selected: false },
+          { name: 'boating', icon: 'ci ci-boating', label: "Boating", selected: true },
+          { name: 'gardening', icon: 'ci ci-gardening', label: "Gardening", selected: false }
         ]
       }
-
     ] // end of Page hobby
 
   }; // end of $rootScope.pages
+
+
+  $rootScope.summary = [
+    { name: 'housing', label: "Housing", price: 0 },
+    { name: 'food', label: "Food", price: 0 },
+    { name: 'transportation', label: "Transportation", price: 0 },
+    { name: 'travel', label: "Travel", price: 0 },
+    { name: 'hobby', label: "Hobby", price: 0 }
+  ];
+
+
+  $rootScope.saveToSummary = function(name, price) {
+
+    angular.forEach($rootScope.summary, function(category) {
+      if (category.name === name) {
+        $log.log('Saving ... name = ' + category.name + ', price = ' + category.price);
+        category.price = price;
+        $log.log('Saved ... name = ' + category.name + ', price = ' + category.price);
+      }
+    });
+  };
+
+
+  // Populate cities dropdown
+  $http.get('/cities').success(function(cities) {
+
+    angular.forEach(cities, function(city) {
+      $rootScope.pages.location[0].answers.push({
+        name: city.name,
+        label: city.name
+      });
+    });
+  });
 
 });
