@@ -195,9 +195,9 @@ angular.module('app')
 
     $log.log(url);
 
-    // $http.get(url).success(function(price) {
-    //   $scope.saveToSummary('hobby', price);
-    // });
+    $http.get(url).success(function(price) {
+      $scope.saveToSummary('hobby', price);
+    });
 
   };
 })

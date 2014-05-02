@@ -103,7 +103,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - housing
       {
         name: 'housingType',
-        value: "rentInCentre",
+        value: ['rentInCentre'],
         type: "radio",
         answers: [
           { name: "rentInCentre", icon: "fa fa-building-o", label: "Rent in city centre", selected: true },
@@ -123,7 +123,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'food',
         type: 'radio',
-        value: 'midRangeRestaurant',
+        value: ['midRangeRestaurant'],
         answers: [
           { name: 'cookAtHome', icon: 'glyphicon glyphicon-cutlery', label: "Cook at home", selected: true },
           { name: 'inexpensiveRestaurant', icon: 'ci ci-dollar',  label: "Inexpensive restaurant", selected: false },
@@ -143,7 +143,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'transportation',
         type: 'radio',
-        value: 'bus',
+        value: ['midRangeCar'],
         answers: [
           { name: 'publicTransportation', icon: 'ci ci-bus', label: "Public transportation", selected: true },
           { name: 'midRangeCar', icon: 'ci ci-car', label: "Mid-range car", selected: false },
@@ -179,7 +179,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       {
         name: 'hobby',
         type: 'checkbox',
-        value: ['golf', 'hiking'],
+        value: ['golf', 'boating'],
         answers: [
           { name: 'golf', icon: 'ci ci-golf', label: "Golf", selected: true },
           { name: 'dancing', icon: 'glyphicon glyphicon-music', label: "Dancing", selected: false},
