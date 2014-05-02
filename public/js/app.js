@@ -63,7 +63,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - location
       {
         name: 'cityState',
-        value: "blah2",
+        value: "San Jose, CA",
         answers: [
         ]
       }
@@ -186,7 +186,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
           { name: 'gardening', img: 'blah3', label: "Gardening", selected: false }
         ]
       }
-
     ] // end of Page hobby
 
   }; // end of $rootScope.pages
