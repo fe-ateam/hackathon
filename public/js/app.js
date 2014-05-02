@@ -76,6 +76,7 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - current age
       {
         name: 'currentAge',
+        label: 'What is your current age?',
         value: '55',
         type: 'text',
         validation: 'numbers-only',
@@ -86,7 +87,8 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
       // Question - retirement age
       {
         name: 'retirementAge',
-        value: '65',
+        label: 'What age would you like to retire at?',
+        value: '65',
         type: 'text',
         validation: 'numbers-only',
         min: 18,
