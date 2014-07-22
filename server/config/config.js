@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   development: {
-    name: 'localhost'
+    name: 'localhost',
     db: 'mongodb://localhost/hackathon',
     rootPath: path.normalize(__dirname + '/../../'),
     port: process.env.PORT || 3000
