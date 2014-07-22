@@ -5,6 +5,7 @@
   "author": "A-Team",
   "license": "MIT",
   "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
     "start": "node server.js"
   },
   "main": "server.js",
