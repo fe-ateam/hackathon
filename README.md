@@ -28,7 +28,7 @@ Installation
 3. Clone this repository
 
   ```
-  git clone https://github.com/fe-ateam/mean.git
+  git clone https://github.com/fe-ateam/hackathon.git
   ```
 
 Running
