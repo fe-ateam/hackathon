@@ -7,8 +7,8 @@ module.exports = {
     port: process.env.PORT || 3000
   }
   , production: {
-    db: 'mongodb://heroku_app27660518:87rbfojvie5quidg02m374ula7@ds027479.mongolab.com/heroku_app27660518',
+    db: 'mongodb://heroku_app27660518:87rbfojvie5quidg02m374ula7@ds027479.mongolab.com:27479/heroku_app27660518',
     rootPath: path.normalize(__dirname + '/../../'),
-    port: 27479
+    port: process.env.PORT || 3000
   }
 }
