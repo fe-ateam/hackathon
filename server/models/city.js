@@ -28,7 +28,7 @@ function createDefaultCities() {
       }
 
       var fs = require('fs');
-      var file = __dirname + '/100citiesdefault.json';
+      var file = __dirname + '/../../100citiesdefault.json';
        
       fs.readFile(file, 'utf8', function (err, data) {
         if (err) {
