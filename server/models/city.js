@@ -27,17 +27,19 @@ function createDefaultCities() {
         console.log('Created ' + city.name);
       }
 
-      var fs = require('fs');
-      var file = __dirname + '/../../100citiesdefault.json';
-       
-      fs.readFile(file, 'utf8', function (err, data) {
-        if (err) {
-          console.log('Error: ' + err);
-          return;
-        }
-       
-        data = JSON.parse(data);
-        City.create(data);
+      var fs = require('fs'),
+          readline = require('readline'),
+          file = __dirname + '/../../100citiesdefault.json';
+
+      var rd = readline.createInterface({
+          input: fs.createReadStream(file),
+          output: process.stdout,
+          terminal: false
+      });
+
+      rd.on('line', function(line) {
+        line = JSON.parse(line);
+        City.create(line);
       });
     }
   })
