@@ -113,10 +113,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         value: ['rentInCentre'],
         type: "radio",
         answers: [
-          { name: "rentInCentre", icon: {css:"fa fa-building-o", img: ''}, label: "Rent in city centre", selected: true },
-          { name: "rentOutsideCentre", icon: {css:"fa fa-home", img: ''}, label: "Rent outside of centre", selected: false },
-          { name: "buyInCentre", icon: {css:"fa fa-building-o", img: ''}, label: "Buy in city centre", selected: false },
-          { name: "buyOutsideCentre", icon: {css:"fa fa-home", img: ''}, label: "Buy outside of centre", selected: false }
+          { name: "rentInCentre", icon: {css:"fa fa-building-o", img: ''}, label: "Rent in city center", selected: true },
+          { name: "rentOutsideCentre", icon: {css:"fa fa-home", img: ''}, label: "Rent outside of center", selected: false },
+          { name: "buyInCentre", icon: {css:"fa fa-building-o", img: ''}, label: "Buy in city center", selected: false },
+          { name: "buyOutsideCentre", icon: {css:"fa fa-home", img: ''}, label: "Buy outside of center", selected: false }
         ]
       }
     ], // end of page housing
