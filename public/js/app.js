@@ -188,10 +188,10 @@ angular.module('app', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
         type: 'checkbox',
         value: ['golf', 'boating'],
         answers: [
-          { name: 'golf', icon: {css:'ci ci-golf', img: 'img/icons/golf-SM.png'}, label: "Golf", selected: true },
+          { name: 'golf', icon: {css:'ci ci-golf', img: 'img/icons/golf-SM.png'}, label: "Golf", selected: false },
           { name: 'dancing', icon: {css:'glyphicon glyphicon-music', img: ''}, label: "Dancing", selected: false},
           { name: 'fishing', icon: {css:'ci ci-fishing', img: 'img/icons/fishing-SM.png'}, label: "Fishing", selected: false },
-          { name: 'boating', icon: {css:'ci ci-boating', img: 'img/icons/boating-SM.png'}, label: "Boating", selected: true },
+          { name: 'boating', icon: {css:'ci ci-boating', img: 'img/icons/boating-SM.png'}, label: "Boating", selected: false },
           { name: 'gardening', icon: {css:'ci ci-gardening', img: 'img/icons/gardening-SM.png'}, label: "Gardening", selected: false }
         ]
       }

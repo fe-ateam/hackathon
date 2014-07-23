@@ -69,7 +69,7 @@ angular.module('app')
   $log.log('agesController');
 
   $scope.pageClass = 'page-ages';
-  $scope.pageTitle = "Your ages";
+  $scope.pageTitle = "Your age";
   $scope.inputFields = $scope.pages.ages;
 
   $scope.goNext = function(){
@@ -83,7 +83,7 @@ angular.module('app')
   $log.log('housingController');
 
   $scope.pageClass = 'page-housing';
-  $scope.pageTitle = "What house do you like to live in?";
+  $scope.pageTitle = "What kind of house do you plan to live in?";
   $scope.inputFields = $scope.pages.housing;
 
   $scope.goNext = function(){
@@ -97,7 +97,7 @@ angular.module('app')
   $log.log('foodController');
 
   $scope.pageClass = 'page-food';
-  $scope.pageTitle = "What restaurant would you usually go?";
+  $scope.pageTitle = "Where do you plan to eat when you retire?";
   $scope.inputFields = $scope.pages.food;
 
   $scope.goNext = function() {
@@ -111,7 +111,7 @@ angular.module('app')
   $log.log('transportationController');
 
   $scope.pageClass = 'page-transportation';
-  $scope.pageTitle = "How would you like to move from point A to B?";
+  $scope.pageTitle = "How do you plan to get from point A to B?";
   $scope.inputFields = $scope.pages.transportation;
 
   $scope.goNext = function(){
@@ -125,7 +125,7 @@ angular.module('app')
   $log.log('travelController');
 
   $scope.pageClass = 'page-travel';
-  $scope.pageTitle = "How often do you travel every year?";
+  $scope.pageTitle = "How often do you plan on traveling each year?";
   $scope.inputFields = $scope.pages.travel;
 
   $scope.goNext = function(){
@@ -139,7 +139,7 @@ angular.module('app')
   $log.log('hobbyController');
 
   $scope.pageClass = 'page-hobby';
-  $scope.pageTitle = "What hobbies would you like to have?";
+  $scope.pageTitle = "What hobbies will you have?";
   $scope.inputFields = $scope.pages.hobby;
 
   $scope.goNext = function() {
@@ -234,7 +234,7 @@ angular.module('app')
   $log.log('learnController');
 
   $scope.pageClass = 'page-learn';
-  $scope.pageTitle = "How can you afford such an expense?";
+  $scope.pageTitle = "Will you be able to afford this lifestyle when you retire?";
 
 })
 
