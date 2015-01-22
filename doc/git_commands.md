@@ -95,3 +95,8 @@ To have a shortcut of this command, type
 git config --global alias.ci 'commit -v'
 ```
 
+Log in pretty format with graph:
+
+```
+git config --global alias.lg 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+```
